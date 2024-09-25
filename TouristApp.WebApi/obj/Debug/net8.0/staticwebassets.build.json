@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "MQlIaSv805+505RTm0vVHS5Z1Cvqee3fItHnCoGM0uY=",
+  "Source": "TouristApp.WebApi",
+  "BasePath": "_content/TouristApp.WebApi",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
