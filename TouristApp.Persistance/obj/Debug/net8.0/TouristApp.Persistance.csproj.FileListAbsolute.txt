@@ -15,3 +15,4 @@ D:\Works\RiderProjects\TestApp\TouristApp.Persistance\obj\Debug\net8.0\TouristAp
 D:\Works\RiderProjects\TestApp\TouristApp.Persistance\obj\Debug\net8.0\refint\TouristApp.Persistance.dll
 D:\Works\RiderProjects\TestApp\TouristApp.Persistance\obj\Debug\net8.0\TouristApp.Persistance.pdb
 D:\Works\RiderProjects\TestApp\TouristApp.Persistance\obj\Debug\net8.0\ref\TouristApp.Persistance.dll
+D:\Works\RiderProjects\TestApp\TouristApp.Persistance\obj\Debug\net8.0\TouristApp.Persistance.sourcelink.json

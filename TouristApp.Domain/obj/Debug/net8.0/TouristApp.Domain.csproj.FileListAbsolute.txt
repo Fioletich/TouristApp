@@ -10,3 +10,4 @@ D:\Works\RiderProjects\TestApp\TouristApp.Domain\obj\Debug\net8.0\TouristApp.Dom
 D:\Works\RiderProjects\TestApp\TouristApp.Domain\obj\Debug\net8.0\refint\TouristApp.Domain.dll
 D:\Works\RiderProjects\TestApp\TouristApp.Domain\obj\Debug\net8.0\TouristApp.Domain.pdb
 D:\Works\RiderProjects\TestApp\TouristApp.Domain\obj\Debug\net8.0\ref\TouristApp.Domain.dll
+D:\Works\RiderProjects\TestApp\TouristApp.Domain\obj\Debug\net8.0\TouristApp.Domain.sourcelink.json

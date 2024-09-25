@@ -13,3 +13,4 @@ D:\Works\RiderProjects\TestApp\TouristApp.Application\obj\Debug\net8.0\TouristAp
 D:\Works\RiderProjects\TestApp\TouristApp.Application\obj\Debug\net8.0\refint\TouristApp.Application.dll
 D:\Works\RiderProjects\TestApp\TouristApp.Application\obj\Debug\net8.0\TouristApp.Application.pdb
 D:\Works\RiderProjects\TestApp\TouristApp.Application\obj\Debug\net8.0\ref\TouristApp.Application.dll
+D:\Works\RiderProjects\TestApp\TouristApp.Application\obj\Debug\net8.0\TouristApp.Application.sourcelink.json
