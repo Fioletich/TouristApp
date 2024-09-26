@@ -17,31 +17,31 @@ public class PinPointController : ControllerBase {
     public PinPointController(IMediator mediator) {
         _mediator = mediator;
     }
-
+    
     [HttpGet]
     public async Task<ActionResult<IEnumerable<PinPoint>>> GetAll() {
         return Ok(await _mediator.Send(new GetAllPinPointsRequest()));
     }
 
     [HttpGet]
-    public async Task<ActionResult<PinPoint>> Get([FromBody] GetPinPointRequest request) {
+    public async Task<ActionResult<PinPoint>> Get([FromQuery] GetPinPointRequest request) {
         return Ok(await _mediator.Send(request));
     }
 
     [HttpPost]
-    public async Task<ActionResult<Guid>> Post([FromBody] CreatePinPointRequest request) {
+    public async Task<ActionResult<Guid>> Post([FromQuery] CreatePinPointRequest request) {
         return Ok(await _mediator.Send(request));
     }
 
     [HttpDelete]
-    public async Task<ActionResult> Delete([FromBody] DeletePinPointRequest request) {
+    public async Task<ActionResult> Delete([FromQuery] DeletePinPointRequest request) {
         await _mediator.Send(request);
             
         return Ok();
     }
 
     [HttpPut]
-    public async Task<ActionResult> Put([FromBody] UpdatePinPointRequest request) {
+    public async Task<ActionResult> Put([FromQuery] UpdatePinPointRequest request) {
         await _mediator.Send(request);
 
         return Ok();

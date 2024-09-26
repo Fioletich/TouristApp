@@ -25,24 +25,24 @@ public class RouteController : ControllerBase {
     }
 
     [HttpGet]
-    public async Task<ActionResult<Domain.Models.Route>> Get([FromBody] GetRouteRequest request) {
+    public async Task<ActionResult<Domain.Models.Route>> Get([FromQuery] GetRouteRequest request) {
         return Ok(await _mediator.Send(request));
     }
 
     [HttpPost]
-    public async Task<ActionResult<Guid>> Post([FromBody] CreateRouteRequest request) {
+    public async Task<ActionResult<Guid>> Post([FromQuery] CreateRouteRequest request) {
         return Ok(await _mediator.Send(request));
     }
 
     [HttpPut]
-    public async Task<ActionResult> Put([FromBody] UpdateRouteRequest request) {
+    public async Task<ActionResult> Put([FromQuery] UpdateRouteRequest request) {
         await _mediator.Send(request);
 
         return Ok();
     }
     
     [HttpDelete]
-    public async Task<ActionResult> Delete([FromBody] DeleteRouteRequest request) {
+    public async Task<ActionResult> Delete([FromQuery] DeleteRouteRequest request) {
         await _mediator.Send(request);
 
         return Ok();

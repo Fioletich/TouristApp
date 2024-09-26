@@ -24,24 +24,24 @@ public class TouristRouteController : ControllerBase {
     }
 
     [HttpGet]
-    public async Task<ActionResult<TouristRoute>> Get([FromBody] GetTouristRouteRequest request) {
+    public async Task<ActionResult<TouristRoute>> Get([FromQuery] GetTouristRouteRequest request) {
         return Ok(await _mediator.Send(request));
     }
 
     [HttpPost]
-    public async Task<ActionResult<Guid>> Post([FromBody] CreateTouristRouteRequest request) {
+    public async Task<ActionResult<Guid>> Post([FromQuery] CreateTouristRouteRequest request) {
         return Ok(await _mediator.Send(request));
     }
 
     [HttpPut]
-    public async Task<ActionResult> Put([FromBody] UpdateTouristRouteRequest request) {
+    public async Task<ActionResult> Put([FromQuery] UpdateTouristRouteRequest request) {
         await _mediator.Send(request);
 
         return Ok();
     }
 
     [HttpDelete]
-    public async Task<ActionResult> Delete([FromBody] DeleteTouristRouteRequest request) {
+    public async Task<ActionResult> Delete([FromQuery] DeleteTouristRouteRequest request) {
         await _mediator.Send(request);
 
         return Ok();

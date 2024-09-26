@@ -56,3 +56,4 @@ D:\Works\RiderProjects\TestApp\TouristApp.WebApi\obj\Debug\net8.0\refint\Tourist
 D:\Works\RiderProjects\TestApp\TouristApp.WebApi\obj\Debug\net8.0\TouristApp.WebApi.pdb
 D:\Works\RiderProjects\TestApp\TouristApp.WebApi\obj\Debug\net8.0\TouristApp.WebApi.genruntimeconfig.cache
 D:\Works\RiderProjects\TestApp\TouristApp.WebApi\obj\Debug\net8.0\ref\TouristApp.WebApi.dll
+D:\Works\RiderProjects\TestApp\TouristApp.WebApi\bin\Debug\net8.0\Swashbuckle.AspNetCore.Annotations.dll

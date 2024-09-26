@@ -20,5 +20,8 @@ public class DeleteTouristRouteRequestHandler : IRequestHandler<DeleteTouristRou
         if (entity is null || request.Id != entity.Id) {
             throw new NotFoundException(nameof(TouristRoute), request.Id);
         }
+
+        _context.TouristRoutes.Remove(entity);
+        await _context.SaveChangesAsync(cancellationToken);
     }
 }

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "cMuHZ72XfOwv8PJxQviBAVktCVdp3BYi3RheemsbLzUxYmCFO7sRVo+iTASUYiWlzfng6Z3z65JJB+aKL/tUhA==",
+  "dgSpecHash": "P9eBFX/fqlOsDAe3Jm4E1HTn9nOJRtNgE77J59TD/TkrvfGnaN4OkC3tem8AQN5RG19ZIwrFlKrSzUKdmmyEag==",
   "success": true,
   "projectFilePath": "D:\\Works\\RiderProjects\\TestApp\\TouristApp.WebApi\\TouristApp.WebApi.csproj",
   "expectedPackageFiles": [
@@ -21,12 +21,13 @@
     "C:\\Users\\User\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\9.0.0-rc.1.24431.7\\microsoft.extensions.logging.abstractions.9.0.0-rc.1.24431.7.nupkg.sha512",
     "C:\\Users\\User\\.nuget\\packages\\microsoft.extensions.options\\9.0.0-rc.1.24431.7\\microsoft.extensions.options.9.0.0-rc.1.24431.7.nupkg.sha512",
     "C:\\Users\\User\\.nuget\\packages\\microsoft.extensions.primitives\\9.0.0-rc.1.24431.7\\microsoft.extensions.primitives.9.0.0-rc.1.24431.7.nupkg.sha512",
-    "C:\\Users\\User\\.nuget\\packages\\microsoft.openapi\\1.4.3\\microsoft.openapi.1.4.3.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\microsoft.openapi\\1.6.14\\microsoft.openapi.1.6.14.nupkg.sha512",
     "C:\\Users\\User\\.nuget\\packages\\npgsql\\8.0.4\\npgsql.8.0.4.nupkg.sha512",
     "C:\\Users\\User\\.nuget\\packages\\npgsql.entityframeworkcore.postgresql\\9.0.0-rc.1\\npgsql.entityframeworkcore.postgresql.9.0.0-rc.1.nupkg.sha512",
     "C:\\Users\\User\\.nuget\\packages\\swashbuckle.aspnetcore\\6.4.0\\swashbuckle.aspnetcore.6.4.0.nupkg.sha512",
-    "C:\\Users\\User\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.4.0\\swashbuckle.aspnetcore.swagger.6.4.0.nupkg.sha512",
-    "C:\\Users\\User\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.4.0\\swashbuckle.aspnetcore.swaggergen.6.4.0.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\swashbuckle.aspnetcore.annotations\\6.8.0\\swashbuckle.aspnetcore.annotations.6.8.0.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.8.0\\swashbuckle.aspnetcore.swagger.6.8.0.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.8.0\\swashbuckle.aspnetcore.swaggergen.6.8.0.nupkg.sha512",
     "C:\\Users\\User\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\6.4.0\\swashbuckle.aspnetcore.swaggerui.6.4.0.nupkg.sha512",
     "C:\\Users\\User\\.nuget\\packages\\system.diagnostics.diagnosticsource\\9.0.0-rc.1.24431.7\\system.diagnostics.diagnosticsource.9.0.0-rc.1.24431.7.nupkg.sha512"
   ],

@@ -20,13 +20,8 @@ public class ConsoleApp : IHostedService {
         await using var scope = _serviceScopeFactory.CreateAsyncScope();
 
         mediator = scope.ServiceProvider.GetService<IMediator>();
-
-        var enumeration = await mediator.Send(new GetAllRoutesRequest());
-
-        foreach (var touristRoute in enumeration)
-        {
-            _logger.LogInformation(touristRoute.Name);
-        }
+        
+        
     }
 
     public Task StopAsync(CancellationToken cancellationToken) {
