@@ -7,7 +7,7 @@ namespace TouristApp.Application.TouristRoutes.Queries.GetAllTouristRoutes;
 
 public class GetAllTouristRoutesRequestHandler : 
     IRequestHandler<GetAllTouristRoutesRequest, IEnumerable<TouristRoute>> {
-    private ITouristApplicationDbContext _context;
+    private readonly ITouristApplicationDbContext _context;
 
     public GetAllTouristRoutesRequestHandler(ITouristApplicationDbContext context) {
         _context = context;

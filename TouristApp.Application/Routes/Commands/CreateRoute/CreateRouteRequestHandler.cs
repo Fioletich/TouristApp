@@ -5,7 +5,7 @@ using TouristApp.Domain.Models;
 namespace TouristApp.Application.Routes.Commands.CreateRoute;
 
 public class CreateRouteRequestHandler : IRequestHandler<CreateRouteRequest, Guid> {
-    private ITouristApplicationDbContext _context;
+    private readonly ITouristApplicationDbContext _context;
 
     public CreateRouteRequestHandler(ITouristApplicationDbContext context) {
         _context = context;

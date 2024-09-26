@@ -5,7 +5,7 @@ using TouristApp.Domain.Models;
 namespace TouristApp.Application.PinPoints.Commands.CreatePinPoint;
 
 public class CreatePinPointRequestHandler : IRequestHandler<CreatePinPointRequest, Guid> {
-    private ITouristApplicationDbContext _context;
+    private readonly ITouristApplicationDbContext _context;
 
     public CreatePinPointRequestHandler(ITouristApplicationDbContext context) {
         _context = context;

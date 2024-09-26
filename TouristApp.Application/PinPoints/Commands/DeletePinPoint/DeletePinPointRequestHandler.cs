@@ -6,7 +6,7 @@ using TouristApp.Application.Interfaces;
 namespace TouristApp.Application.PinPoints.Commands.DeletePinPoint;
 
 public class DeletePinPointRequestHandler : IRequestHandler<DeletePinPointRequest> {
-    private ITouristApplicationDbContext _context;
+    private readonly ITouristApplicationDbContext _context;
 
     public DeletePinPointRequestHandler(ITouristApplicationDbContext context) {
         _context = context;

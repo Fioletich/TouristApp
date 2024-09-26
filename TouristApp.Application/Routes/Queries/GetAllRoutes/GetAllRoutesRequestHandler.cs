@@ -6,7 +6,7 @@ using TouristApp.Domain.Models;
 namespace TouristApp.Application.Routes.Queries.GetAllRoutes;
 
 public class GetAllRoutesRequestHandler : IRequestHandler<GetAllRoutesRequest, IEnumerable<Route>> {
-    private ITouristApplicationDbContext _context;
+    private readonly ITouristApplicationDbContext _context;
 
     public GetAllRoutesRequestHandler(ITouristApplicationDbContext context) {
         _context = context;

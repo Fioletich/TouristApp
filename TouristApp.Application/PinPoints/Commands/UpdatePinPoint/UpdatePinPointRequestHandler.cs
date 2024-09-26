@@ -6,7 +6,7 @@ using TouristApp.Application.Interfaces;
 namespace TouristApp.Application.PinPoints.Commands.UpdatePinPoint;
 
 public class UpdatePinPointRequestHandler : IRequestHandler<UpdatePinPointRequest, Unit> {
-    private ITouristApplicationDbContext _context;
+    private readonly ITouristApplicationDbContext _context;
 
     public UpdatePinPointRequestHandler(ITouristApplicationDbContext context) {
         _context = context;

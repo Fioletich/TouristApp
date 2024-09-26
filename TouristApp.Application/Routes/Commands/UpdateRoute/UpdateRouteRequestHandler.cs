@@ -7,7 +7,7 @@ using TouristApp.Domain.Models;
 namespace TouristApp.Application.Routes.Commands.UpdateRoute;
 
 public class UpdateRouteRequestHandler : IRequestHandler<UpdateRouteRequest> {
-    private ITouristApplicationDbContext _context;
+    private readonly ITouristApplicationDbContext _context;
 
     public UpdateRouteRequestHandler(ITouristApplicationDbContext context) {
         _context = context;

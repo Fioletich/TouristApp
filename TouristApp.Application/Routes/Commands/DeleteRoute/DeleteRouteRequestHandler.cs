@@ -6,7 +6,7 @@ using TouristApp.Application.Interfaces;
 namespace TouristApp.Application.Routes.Commands.DeleteRoute;
 
 public class DeleteRouteRequestHandler : IRequestHandler<DeleteRouteRequest> {
-    private ITouristApplicationDbContext _context;
+    private readonly ITouristApplicationDbContext _context;
 
     public DeleteRouteRequestHandler(ITouristApplicationDbContext context) {
         _context = context;
