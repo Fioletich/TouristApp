@@ -34,15 +34,15 @@ public class RouteController : ControllerBase {
         return Ok(await _mediator.Send(request));
     }
 
-    [HttpDelete]
-    public async Task<ActionResult> Delete([FromBody] DeleteRouteRequest request) {
+    [HttpPut]
+    public async Task<ActionResult> Put([FromBody] UpdateRouteRequest request) {
         await _mediator.Send(request);
 
         return Ok();
     }
-
-    [HttpPut]
-    public async Task<ActionResult> Put([FromBody] UpdateRouteRequest request) {
+    
+    [HttpDelete]
+    public async Task<ActionResult> Delete([FromBody] DeleteRouteRequest request) {
         await _mediator.Send(request);
 
         return Ok();
