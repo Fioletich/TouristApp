@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TouristApp.Persistance")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ceb1164b60edcbd9bd6f91c19aee6a05ef314401")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+beb056f1ac0187e9c23dd2696445bd1d3cd0f5b8")]
 [assembly: System.Reflection.AssemblyProductAttribute("TouristApp.Persistance")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TouristApp.Persistance")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
