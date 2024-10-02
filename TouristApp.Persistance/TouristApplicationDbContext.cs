@@ -10,6 +10,7 @@ public class TouristApplicationDbContext : DbContext, ITouristApplicationDbConte
     public DbSet<Route> Routes { get; set; }
     public DbSet<TouristRoute> TouristRoutes { get; set; }
     public DbSet<User> Users { get; set; }
+    public DbSet<Featured> Featureds { get; set; }
 
     public TouristApplicationDbContext(DbContextOptions<TouristApplicationDbContext> options) : base(options) {
         
@@ -28,5 +29,11 @@ public class TouristApplicationDbContext : DbContext, ITouristApplicationDbConte
 
         modelBuilder.Entity<TouristRoute>()
             .HasKey(t => t.Id);
+
+        modelBuilder.Entity<User>()
+            .HasKey(u => u.UserId);
+
+        modelBuilder.Entity<Featured>()
+            .HasKey(f => f.Id);
     }
 }

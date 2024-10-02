@@ -3,6 +3,7 @@ using Microsoft.OpenApi.Models;
 using TouristApp.Application.Exceptions;
 using TouristApp.Application.Interfaces;
 using TouristApp.Persistance;
+using TouristApp.WebApi.Middleware;
 
 namespace TouristApp.WebApi;
 
@@ -54,7 +55,8 @@ public class Startup {
             {
                 app.UseDeveloperExceptionPage();
             }
-            
+
+            app.UseCustomExceptionHandler();
             app.UseRouting();
             app.UseHttpsRedirection();
             app.UseCors("AllowAll");
