@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Works\\RiderProjects\\TestApp\\TouristApp.Domain\\TouristApp.Domain.csproj": {}
+    "D:\\Works\\RiderProjects\\TouristApp\\TouristApp.Domain\\TouristApp.Domain.csproj": {}
   },
   "projects": {
-    "D:\\Works\\RiderProjects\\TestApp\\TouristApp.Domain\\TouristApp.Domain.csproj": {
+    "D:\\Works\\RiderProjects\\TouristApp\\TouristApp.Domain\\TouristApp.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Works\\RiderProjects\\TestApp\\TouristApp.Domain\\TouristApp.Domain.csproj",
+        "projectUniqueName": "D:\\Works\\RiderProjects\\TouristApp\\TouristApp.Domain\\TouristApp.Domain.csproj",
         "projectName": "TouristApp.Domain",
-        "projectPath": "D:\\Works\\RiderProjects\\TestApp\\TouristApp.Domain\\TouristApp.Domain.csproj",
+        "projectPath": "D:\\Works\\RiderProjects\\TouristApp\\TouristApp.Domain\\TouristApp.Domain.csproj",
         "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "D:\\Works\\RiderProjects\\TestApp\\TouristApp.Domain\\obj\\",
+        "outputPath": "D:\\Works\\RiderProjects\\TouristApp\\TouristApp.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config"

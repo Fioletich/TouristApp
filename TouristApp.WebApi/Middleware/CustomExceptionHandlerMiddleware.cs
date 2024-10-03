@@ -1,5 +1,6 @@
 ﻿using System.Net;
 using System.Text.Json;
+using FluentValidation;
 using TouristApp.Application.Exceptions;
 
 namespace TouristApp.WebApi.Middleware;
@@ -29,10 +30,10 @@ public class CustomExceptionHandlerMiddleware {
 
         switch (ex)
         {
-            //case ValidationException exception:
-            //    code = HttpStatusCode.BadRequest;
-            //    result = JsonSerializer.Serialize(exception.Errors);
-            //    break;
+            case ValidationException exception:
+                code = HttpStatusCode.BadRequest;
+                result = JsonSerializer.Serialize(exception.Errors);
+                break;
             case NotFoundException exception:
                 code = HttpStatusCode.NotFound;
                 break;

@@ -2,7 +2,7 @@
 using TouristApp.Application.Interfaces;
 using TouristApp.Domain.Models;
 
-namespace TouristApp.Application.Users.Commands.UserCreate;
+namespace TouristApp.Application.Users.Commands.CreateUser;
 
 public class CreateUserRequestHandler : IRequestHandler<CreateUserRequest, Guid> {
     private readonly ITouristApplicationDbContext _context;

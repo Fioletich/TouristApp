@@ -1,8 +1,19 @@
+using Serilog;
+using Serilog.Events;
+
 namespace TouristApp.WebApi;
 
 public class Program {
     public static void Main(string[] args) {
-        var host = CreateHostBuilder(args).Build();
+        Log.Logger = new LoggerConfiguration()
+            .MinimumLevel.Override("Microsoft", LogEventLevel.Information)
+            .WriteTo.File("TouristApplicationLog-.txt.log", rollingInterval:
+                RollingInterval.Day)
+            .CreateLogger();
+        
+        var host = CreateHostBuilder(args)
+            .UseSerilog()
+            .Build();
         
         host.Run();
     }

@@ -1,7 +1,5 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestApp", "TestApp\TestApp.csproj", "{2E30A83F-965D-4380-8F0B-4F5F48C62469}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TouristApp.Domain", "TouristApp.Domain\TouristApp.Domain.csproj", "{5E98C29A-33AF-45F8-9D39-9ED2B17E7407}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TouristApp.Application", "TouristApp.Application\TouristApp.Application.csproj", "{38A24136-1F25-4369-804A-95C87B5F86E3}"
@@ -16,10 +14,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{2E30A83F-965D-4380-8F0B-4F5F48C62469}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2E30A83F-965D-4380-8F0B-4F5F48C62469}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2E30A83F-965D-4380-8F0B-4F5F48C62469}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2E30A83F-965D-4380-8F0B-4F5F48C62469}.Release|Any CPU.Build.0 = Release|Any CPU
 		{5E98C29A-33AF-45F8-9D39-9ED2B17E7407}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{5E98C29A-33AF-45F8-9D39-9ED2B17E7407}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5E98C29A-33AF-45F8-9D39-9ED2B17E7407}.Release|Any CPU.ActiveCfg = Release|Any CPU

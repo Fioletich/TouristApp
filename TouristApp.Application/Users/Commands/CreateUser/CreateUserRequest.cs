@@ -1,6 +1,6 @@
 ﻿using MediatR;
 
-namespace TouristApp.Application.Users.Commands.UserCreate;
+namespace TouristApp.Application.Users.Commands.CreateUser;
 
 public class CreateUserRequest : IRequest<Guid> {
     public string? Login { get; set; }

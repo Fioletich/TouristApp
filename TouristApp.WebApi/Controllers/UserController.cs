@@ -1,8 +1,8 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using TouristApp.Application.Users.Commands.CreateUser;
 using TouristApp.Application.Users.Commands.DeleteUser;
 using TouristApp.Application.Users.Commands.UpdateUserRequest;
-using TouristApp.Application.Users.Commands.UserCreate;
 using TouristApp.Application.Users.Queries.GetAllUsers;
 using TouristApp.Application.Users.Queries.GetUser;
 using TouristApp.Domain.Models;

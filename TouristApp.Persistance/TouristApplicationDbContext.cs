@@ -16,9 +16,9 @@ public class TouristApplicationDbContext : DbContext, ITouristApplicationDbConte
         
     }
     
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) {
-        optionsBuilder.UseNpgsql("Server=localhost;Port=1111;Database=postgres;UserName=postgres;Password=123789pr;");
-    }
+    //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) {
+        //optionsBuilder.UseNpgsql("Server=localhost;Port=1111;Database=postgres;UserName=postgres;Password=123789pr;");
+    //}
 
     protected override void OnModelCreating(ModelBuilder modelBuilder) {
         modelBuilder.Entity<PinPoint>()

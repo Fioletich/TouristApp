@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "hJAGVRmcoCqspLFFdbkwcTJhMjHvlHJHkG6EDwMsMTD89Txd3LqCQLc77z9CmSy2V3s3/9NWj20y/WD7jhOcqA==",
+  "dgSpecHash": "FwajBt3kWBCOiSwjOl605W3+v9EvpyGDOWJI2p2MhHzQHWvJEaVFL6m1PjjwWry7qLxX4R/T7TmqXILeeHH+Pg==",
   "success": true,
-  "projectFilePath": "D:\\Works\\RiderProjects\\TestApp\\TouristApp.Domain\\TouristApp.Domain.csproj",
+  "projectFilePath": "D:\\Works\\RiderProjects\\TouristApp\\TouristApp.Domain\\TouristApp.Domain.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\User\\.nuget\\packages\\microsoft.entityframeworkcore\\9.0.0-rc.1.24451.1\\microsoft.entityframeworkcore.9.0.0-rc.1.24451.1.nupkg.sha512",
     "C:\\Users\\User\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\9.0.0-rc.1.24451.1\\microsoft.entityframeworkcore.abstractions.9.0.0-rc.1.24451.1.nupkg.sha512",
