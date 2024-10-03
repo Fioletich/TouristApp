@@ -3,10 +3,10 @@ using MediatR;
 
 namespace TouristApp.Application.Common.Beheviors;
 
-public class ValidationBehevior<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse> {
+public class ValidationBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse> {
     private readonly IEnumerable<IValidator<TRequest>> _validators;
 
-    public ValidationBehevior(IEnumerable<IValidator<TRequest>> validators) {
+    public ValidationBehavior(IEnumerable<IValidator<TRequest>> validators) {
         _validators = validators;
     }
 
