@@ -14,6 +14,26 @@
           "TouristApp.Persistance.dll": {}
         }
       },
+      "FluentValidation/11.10.0": {
+        "runtime": {
+          "lib/net8.0/FluentValidation.dll": {
+            "assemblyVersion": "11.0.0.0",
+            "fileVersion": "11.10.0.0"
+          }
+        }
+      },
+      "FluentValidation.DependencyInjectionExtensions/11.10.0": {
+        "dependencies": {
+          "FluentValidation": "11.10.0",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "9.0.0-rc.1.24431.7"
+        },
+        "runtime": {
+          "lib/netstandard2.1/FluentValidation.DependencyInjectionExtensions.dll": {
+            "assemblyVersion": "11.0.0.0",
+            "fileVersion": "11.10.0.0"
+          }
+        }
+      },
       "MediatR/12.4.1": {
         "dependencies": {
           "MediatR.Contracts": "2.0.1",
@@ -194,6 +214,14 @@
           }
         }
       },
+      "Serilog/4.1.0-dev-02238": {
+        "runtime": {
+          "lib/net8.0/Serilog.dll": {
+            "assemblyVersion": "4.1.0.0",
+            "fileVersion": "4.1.0.0"
+          }
+        }
+      },
       "System.Diagnostics.DiagnosticSource/9.0.0-rc.1.24431.7": {
         "runtime": {
           "lib/net8.0/System.Diagnostics.DiagnosticSource.dll": {
@@ -204,8 +232,11 @@
       },
       "TouristApp.Application/1.0.0": {
         "dependencies": {
+          "FluentValidation": "11.10.0",
+          "FluentValidation.DependencyInjectionExtensions": "11.10.0",
           "MediatR": "12.4.1",
           "Npgsql.EntityFrameworkCore.PostgreSQL": "9.0.0-rc.1",
+          "Serilog": "4.1.0-dev-02238",
           "TouristApp.Domain": "1.0.0"
         },
         "runtime": {
@@ -227,6 +258,20 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "FluentValidation/11.10.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-qsJGSJDdZ8qiG+lVJ70PZfJHcEdq8UQZ/tZDXoj78/iHKG6lVKtMJsD11zyyv/IPc7rwqGqnFoFLTNzpo3IPYg==",
+      "path": "fluentvalidation/11.10.0",
+      "hashPath": "fluentvalidation.11.10.0.nupkg.sha512"
+    },
+    "FluentValidation.DependencyInjectionExtensions/11.10.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-hIe+i6P+ZUxFh6lJOBXRs4EGE/thcub0Lpdk2FF2/JBKJUqDqE2xDnBIiqTMkpXLoekgBN0SlhJT0vpeNr1J6g==",
+      "path": "fluentvalidation.dependencyinjectionextensions/11.10.0",
+      "hashPath": "fluentvalidation.dependencyinjectionextensions.11.10.0.nupkg.sha512"
     },
     "MediatR/12.4.1": {
       "type": "package",
@@ -346,6 +391,13 @@
       "sha512": "sha512-4vbkjFA/WlBMQ8+NlexQkw2IMj3Ft0Dni39YWbXUO/M13dV0UAAIYHoPpyVhTAIfR1y5TpaVTX9lx9JCkLRHEw==",
       "path": "npgsql.entityframeworkcore.postgresql/9.0.0-rc.1",
       "hashPath": "npgsql.entityframeworkcore.postgresql.9.0.0-rc.1.nupkg.sha512"
+    },
+    "Serilog/4.1.0-dev-02238": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-R5O6P14RaWfuF6aLPBptHJbCIh2mziGrrxuU6gPg7J7EywNc4LFFRnywOEONYdjpHj0CphnKfFYRoi96fOb8eA==",
+      "path": "serilog/4.1.0-dev-02238",
+      "hashPath": "serilog.4.1.0-dev-02238.nupkg.sha512"
     },
     "System.Diagnostics.DiagnosticSource/9.0.0-rc.1.24431.7": {
       "type": "package",
