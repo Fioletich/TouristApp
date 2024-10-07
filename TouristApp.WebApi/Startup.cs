@@ -21,7 +21,10 @@ public class Startup {
             
         services.AddDbContext<TouristApplicationDbContext>(options => 
         {
-            options.UseNpgsql(Configuration["DbConnection"]);
+            options.UseSqlServer(Configuration["DbConnection"], builder =>
+            {
+                builder.EnableRetryOnFailure(5, TimeSpan.FromSeconds(10), null);
+            });
         });
         services.AddScoped<ITouristApplicationDbContext>(provider => 
             provider.GetRequiredService<TouristApplicationDbContext>());
@@ -46,18 +49,14 @@ public class Startup {
     }
 
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
-    {
-        if (env.IsDevelopment())
-        { 
-            app.UseDeveloperExceptionPage();
-        }
-
+    { 
+        app.UseDeveloperExceptionPage();
         app.UseCustomExceptionHandler();
         app.UseRouting();
         app.UseHttpsRedirection();
         app.UseCors("AllowAll");
         app.UseSwagger();
-        app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Test v1"));
+        app.UseSwaggerUI(c => c.SwaggerEndpoint("./v1/swagger.json", "Test v1"));
 
         app.UseEndpoints(options =>
         {

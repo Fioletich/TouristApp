@@ -1,6 +1,7 @@
 ﻿using System.Net;
 using System.Text.Json;
 using FluentValidation;
+using Serilog;
 using TouristApp.Application.Exceptions;
 
 namespace TouristApp.WebApi.Middleware;
@@ -37,6 +38,9 @@ public class CustomExceptionHandlerMiddleware {
             case NotFoundException exception:
                 code = HttpStatusCode.NotFound;
                 break;
+            case ArgumentException exception:
+                code = HttpStatusCode.NotFound;
+                break;
         }
 
         context.Response.ContentType = "application/json";
@@ -46,6 +50,7 @@ public class CustomExceptionHandlerMiddleware {
         {
             result = JsonSerializer.Serialize(new { error = ex.Message });
         }
+        Log.Error("Exception: {Result}", result);
 
         return context.Response.WriteAsync(result);
     }

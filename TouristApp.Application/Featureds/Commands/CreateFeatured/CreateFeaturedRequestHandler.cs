@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using Microsoft.EntityFrameworkCore;
 using TouristApp.Application.Interfaces;
 using TouristApp.Domain.Models;
 
@@ -12,6 +13,18 @@ public class CreateFeaturedRequestHandler : IRequestHandler<CreateFeaturedReques
     }
     
     public async Task<Guid> Handle(CreateFeaturedRequest request, CancellationToken cancellationToken) {
+        var touristRoute = await _context.TouristRoutes
+            .FirstOrDefaultAsync(t => t.Id == request.TouristRouteId, cancellationToken);
+
+        var user = await _context.Users
+            .FirstOrDefaultAsync(u => u.Id == request.UserId, cancellationToken);
+
+        if (touristRoute is null || user is null || touristRoute.Id != request.TouristRouteId ||
+            user.Id != request.UserId)
+        {
+            throw new ArgumentException("Tourist route or user was not found by id");
+        }
+        
         var entity = new Featured()
         {
             Id = Guid.NewGuid(),

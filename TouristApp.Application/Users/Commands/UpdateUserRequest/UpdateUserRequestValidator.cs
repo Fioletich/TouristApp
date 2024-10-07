@@ -16,5 +16,17 @@ public class UpdateUserRequestValidator : AbstractValidator<UpdateUserRequest> {
             .NotNull()
             .NotEqual(string.Empty)
             .MaximumLength(255);
+        
+        RuleFor(reqest => reqest.PhoneNumber)
+            .MaximumLength(13);
+
+        RuleFor(request => request.Bio)
+            .MaximumLength(255);
+
+        RuleFor(requst => requst.Country)
+            .MaximumLength(255);
+
+        RuleFor(request => request.City)
+            .MaximumLength(255);
     }
 }

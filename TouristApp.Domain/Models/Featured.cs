@@ -2,12 +2,9 @@
 
 namespace TouristApp.Domain.Models;
 
-[Table("featured")]
+[Table("Featureds")]
 public class Featured {
-    [Column("id")]
-    public Guid Id { get; set; }
-    [Column("touristroute_id")]
-    public Guid TouristRouteId { get; set; }
-    [Column("user_id")]
-    public Guid UserId { get; set; }
+    [Column("Id")] public Guid Id { get; set; }
+    [Column("TouristRouteId")] public Guid TouristRouteId { get; set; }
+    [Column("UserId")] public Guid UserId { get; set; }
 }

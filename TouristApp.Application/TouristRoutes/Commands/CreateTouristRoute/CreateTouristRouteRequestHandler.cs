@@ -21,7 +21,7 @@ public class CreateTouristRouteRequestHandler : IRequestHandler<CreateTouristRou
             .FirstOrDefaultAsync(t => request.RouteId == t.Id, cancellationToken);
 
         if (pinPoint is null || route is null || pinPoint.Id != request.PinPointId || route.Id != request.RouteId) {
-            throw new ArgumentException("Tourit route not found by ip");
+            throw new ArgumentException("Route or pinpoint was not found by ip");
         }
         
         var entity = new TouristRoute()

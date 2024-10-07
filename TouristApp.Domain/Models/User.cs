@@ -2,12 +2,13 @@
 
 namespace TouristApp.Domain.Models;
 
-[Table("user")]
+[Table("Users")]
 public class User {
-    [Column("user_id")]
-    public Guid UserId { get; set; }
-    [Column("login")]
-    public string? Login { get; set; }
-    [Column("password")]
-    public string? Password { get; set; }
+    [Column("Id")] public Guid Id { get; set; }
+    [Column("Login")] public string Login { get; set; }
+    [Column("Password")] public string Password { get; set; }
+    [Column("PhoneNumber")] public string? PhoneNumber { get; set; }
+    [Column("Bio")] public string? Bio { get; set; }
+    [Column("Country")] public string? Country { get; set; }
+    [Column("City")] public string? City { get; set; }
 }

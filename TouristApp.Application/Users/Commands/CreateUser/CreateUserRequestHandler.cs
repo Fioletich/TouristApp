@@ -14,14 +14,18 @@ public class CreateUserRequestHandler : IRequestHandler<CreateUserRequest, Guid>
     public async Task<Guid> Handle(CreateUserRequest request, CancellationToken cancellationToken) {
         var user = new User
         {
-            UserId = Guid.NewGuid(),
+            Id = Guid.NewGuid(),
             Login = request.Login,
-            Password = request.Password
+            Password = request.Password,
+            PhoneNumber = request.PhoneNumber,
+            Bio = request.Bio,
+            Country = request.Country,
+            City = request.City
         };
 
         await _context.Users.AddAsync(user, cancellationToken);
         await _context.SaveChangesAsync(cancellationToken);
 
-        return user.UserId;
+        return user.Id;
     }
 }

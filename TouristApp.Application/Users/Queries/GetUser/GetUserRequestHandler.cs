@@ -15,9 +15,9 @@ public class GetUserRequestHandler : IRequestHandler<GetUserRequest, User> {
 
     public async Task<User> Handle(GetUserRequest request, CancellationToken cancellationToken) {
         var entity = await _context.Users
-            .FirstOrDefaultAsync(u => u.UserId == request.UserId, cancellationToken);
+            .FirstOrDefaultAsync(u => u.Id == request.UserId, cancellationToken);
 
-        if (entity is null || entity.UserId != request.UserId)
+        if (entity is null || entity.Id != request.UserId)
         {
             throw new NotFoundException(nameof(User), request.UserId);
         }

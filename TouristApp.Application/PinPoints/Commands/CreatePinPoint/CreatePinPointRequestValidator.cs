@@ -4,7 +4,15 @@ namespace TouristApp.Application.PinPoints.Commands.CreatePinPoint;
 
 public class CreatePinPointRequestValidator : AbstractValidator<CreatePinPointRequest> {
     public CreatePinPointRequestValidator() {
+        RuleFor(request => request.CategoryId)
+            .NotEqual(Guid.Empty);
+        
         RuleFor(request => request.Name)
+            .NotNull()
+            .NotEqual(string.Empty)
+            .MaximumLength(255);
+
+        RuleFor(request => request.Description)
             .NotNull()
             .NotEqual(string.Empty)
             .MaximumLength(255);
