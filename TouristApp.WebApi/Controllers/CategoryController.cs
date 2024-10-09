@@ -24,7 +24,7 @@ public class CategoryController : ControllerBase {
 
     [HttpGet]
     public async Task<ActionResult<Category>> Get([FromQuery] GetCategoryRequest request) {
-        return Ok(await _mediator.Send(new GetCategoryRequest()));
+        return Ok(await _mediator.Send(request));
     }
 
     [HttpPost]
