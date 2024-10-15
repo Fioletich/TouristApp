@@ -10,6 +10,7 @@ public interface ITouristApplicationDbContext {
     public DbSet<User> Users { get; set; }
     public DbSet<Featured> Featureds { get; set; }
     public DbSet<Category> Categories { get; set; }
+    public DbSet<PinpointCategory> PinpointCategories { get; set; }
 
     public Task<int> SaveChangesAsync(CancellationToken cancellationToken);
 }

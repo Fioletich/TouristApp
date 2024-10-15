@@ -1,5 +1,6 @@
 ﻿using MediatR;
 using Microsoft.EntityFrameworkCore;
+using TouristApp.Application.Exceptions;
 using TouristApp.Application.Interfaces;
 using TouristApp.Domain.Models;
 
@@ -20,8 +21,14 @@ public class CreateTouristRouteRequestHandler : IRequestHandler<CreateTouristRou
         var route = await _context.Routes
             .FirstOrDefaultAsync(t => request.RouteId == t.Id, cancellationToken);
 
-        if (pinPoint is null || route is null || pinPoint.Id != request.PinPointId || route.Id != request.RouteId) {
-            throw new ArgumentException("Route or pinpoint was not found by ip");
+        if (pinPoint is null || pinPoint.Id != request.PinPointId )
+        {
+            throw new NotFoundException(nameof(PinPoint), request.PinPointId);
+        }
+
+        if (route is null || route.Id != request.RouteId)
+        {
+            throw new NotFoundException(nameof(Route), request.RouteId);
         }
         
         var entity = new TouristRoute()

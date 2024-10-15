@@ -14,18 +14,9 @@ public class CreatePinPointRequestHandler : IRequestHandler<CreatePinPointReques
     }
 
     public async Task<Guid> Handle(CreatePinPointRequest request, CancellationToken cancellationToken) {
-        var category = await _context.Categories
-            .FirstOrDefaultAsync(c => c.Id == request.CategoryId, cancellationToken);
-
-        if (category is null || category.Id != request.CategoryId)
-        {
-            throw new NotFoundException(nameof(Category), request.CategoryId);
-        }
-        
         var entity = new PinPoint()
         {
             Id = Guid.NewGuid(),
-            CategoryId = request.CategoryId,
             Name = request.Name,
             Description = request.Description,
             XCoordinate = request.XCoordinate,

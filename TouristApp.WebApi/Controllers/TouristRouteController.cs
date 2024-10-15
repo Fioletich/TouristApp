@@ -11,38 +11,32 @@ namespace TouristApp.WebApi.Controllers;
 
 [ApiController]
 [Route("api/[controller]/[action]")]
-public class TouristRouteController : ControllerBase {
-    private readonly IMediator _mediator;
-
-    public TouristRouteController(IMediator mediator) {
-        _mediator = mediator;
-    }
-
+public class TouristRouteController(IMediator mediator) : ControllerBase {
     [HttpGet]
     public async Task<ActionResult<IEnumerable<TouristRoute>>> GetAll() {
-        return Ok(await _mediator.Send(new GetAllTouristRoutesRequest()));
+        return Ok(await mediator.Send(new GetAllTouristRoutesRequest()));
     }
 
     [HttpGet]
     public async Task<ActionResult<TouristRoute>> Get([FromQuery] GetTouristRouteRequest request) {
-        return Ok(await _mediator.Send(request));
+        return Ok(await mediator.Send(request));
     }
 
     [HttpPost]
     public async Task<ActionResult<Guid>> Post([FromQuery] CreateTouristRouteRequest request) {
-        return Ok(await _mediator.Send(request));
+        return Ok(await mediator.Send(request));
     }
 
     [HttpPut]
     public async Task<ActionResult> Put([FromQuery] UpdateTouristRouteRequest request) {
-        await _mediator.Send(request);
+        await mediator.Send(request);
 
         return Ok();
     }
 
     [HttpDelete]
     public async Task<ActionResult> Delete([FromQuery] DeleteTouristRouteRequest request) {
-        await _mediator.Send(request);
+        await mediator.Send(request);
 
         return Ok();
     }

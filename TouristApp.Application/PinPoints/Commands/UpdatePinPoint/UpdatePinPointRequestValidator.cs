@@ -6,9 +6,6 @@ public class UpdatePinPointRequestValidator : AbstractValidator<UpdatePinPointRe
     public UpdatePinPointRequestValidator() {
         RuleFor(request => request.Id)
             .NotEqual(Guid.Empty);
-
-        RuleFor(request => request.CategoryId)
-            .NotEqual(Guid.Empty);
         
         RuleFor(request => request.Name)
             .NotNull()
