@@ -15,15 +15,19 @@ public class UpdateUserRequestHandler : IRequestHandler<UpdateUserRequest> {
 
     public async Task Handle(UpdateUserRequest request, CancellationToken cancellationToken) {
         var entity = await _context.Users
-            .FirstOrDefaultAsync(u => u.UserId == request.UserId, cancellationToken);
+            .FirstOrDefaultAsync(u => u.Id == request.UserId, cancellationToken);
 
-        if (entity is null || entity.UserId == request.UserId)
+        if (entity is null || entity.Id == request.UserId)
         {
             throw new NotFoundException(nameof(User), request.UserId);
         }
 
         entity.Login = request.Login;
         entity.Password = request.Password;
+        entity.Bio = request.Bio;
+        entity.PhoneNumber = request.PhoneNumber;
+        entity.Country = request.Country;
+        entity.City = request.City;
 
         await _context.SaveChangesAsync(cancellationToken);
     }

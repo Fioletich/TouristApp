@@ -7,11 +7,19 @@ public class UpdatePinPointRequestValidator : AbstractValidator<UpdatePinPointRe
         RuleFor(request => request.Id)
             .NotEqual(Guid.Empty);
 
+        RuleFor(request => request.CategoryId)
+            .NotEqual(Guid.Empty);
+        
         RuleFor(request => request.Name)
             .NotNull()
             .NotEqual(string.Empty)
             .MaximumLength(255);
-        
+
+        RuleFor(request => request.Description)
+            .NotNull()
+            .NotEqual(string.Empty)
+            .MaximumLength(255);
+
         RuleFor(request => request.XCoordinate)
             .NotEmpty()
             .GreaterThan(-180m)

@@ -2,9 +2,9 @@
 
 namespace TouristApp.Domain.Models;
 
-[Table("touristroutes")]
+[Table("TouristRoutes")]
 public class TouristRoute {
-    [Column("id")] public Guid Id { get; set; }
-    [Column("route_id")] public Guid RouteId { get; set; }
-    [Column("pinpoint_id")] public Guid PinPointId { get; set; }
+    [Column("Id")] public Guid Id { get; set; }
+    [Column("RouteId")] public Guid RouteId { get; set; }
+    [Column("PinpointId")] public Guid PinPointId { get; set; }
 }
