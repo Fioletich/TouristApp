@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using TouristApp.Application.Categories.Commands.CreateCategory;
 using TouristApp.Application.Categories.Commands.DeleteCategory;
+using TouristApp.Application.Categories.Commands.UpdateCategory;
 using TouristApp.Application.Categories.Queries.GetAllCategories;
 using TouristApp.Application.Categories.Queries.GetCategory;
 using TouristApp.Domain.Models;
@@ -28,6 +29,13 @@ public class CategoryController(IMediator mediator) : ControllerBase {
 
     [HttpDelete]
     public async Task<ActionResult> Delete([FromQuery] DeleteCategoryRequest request) {
+        await mediator.Send(request);
+
+        return Ok();
+    }
+
+    [HttpPut]
+    public async Task<ActionResult> Put([FromQuery] UpdateCategoryRequest request) {
         await mediator.Send(request);
 
         return Ok();
