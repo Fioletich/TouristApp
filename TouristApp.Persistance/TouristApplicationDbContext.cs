@@ -36,5 +36,12 @@ public class TouristApplicationDbContext : DbContext, ITouristApplicationDbConte
 
         modelBuilder.Entity<PinpointCategory>()
             .HasKey(p => p.Id);
+
+        modelBuilder.Entity<PinPoint>()
+            .Property(p => p.XCoordinate)
+            .HasPrecision(8, 6);
+        modelBuilder.Entity<PinPoint>()
+            .Property(p => p.YCoordinate)
+            .HasPrecision(8, 6);
     }
 }
