@@ -12,6 +12,7 @@ public class TouristApplicationDbContext : DbContext, ITouristApplicationDbConte
     public DbSet<User> Users { get; set; }
     public DbSet<Featured> Featureds { get; set; }
     public DbSet<Category> Categories { get; set; }
+    public DbSet<PinpointCategory> PinpointCategories { get; set; }
 
     public TouristApplicationDbContext(DbContextOptions<TouristApplicationDbContext> options) : base(options) {
         
@@ -32,5 +33,15 @@ public class TouristApplicationDbContext : DbContext, ITouristApplicationDbConte
 
         modelBuilder.Entity<Featured>()
             .HasKey(f => f.Id);
+
+        modelBuilder.Entity<PinpointCategory>()
+            .HasKey(p => p.Id);
+
+        modelBuilder.Entity<PinPoint>()
+            .Property(p => p.XCoordinate)
+            .HasPrecision(8, 6);
+        modelBuilder.Entity<PinPoint>()
+            .Property(p => p.YCoordinate)
+            .HasPrecision(8, 6);
     }
 }

@@ -11,38 +11,32 @@ namespace TouristApp.WebApi.Controllers;
 
 [ApiController]
 [Route("api/[controller]/[action]")]
-public class PinPointController : ControllerBase {
-    private readonly IMediator _mediator;
-
-    public PinPointController(IMediator mediator) {
-        _mediator = mediator;
-    }
-    
+public class PinPointController(IMediator mediator) : ControllerBase {
     [HttpGet]
     public async Task<ActionResult<IEnumerable<PinPoint>>> GetAll() {
-        return Ok(await _mediator.Send(new GetAllPinPointsRequest()));
+        return Ok(await mediator.Send(new GetAllPinPointsRequest()));
     }
 
     [HttpGet]
     public async Task<ActionResult<PinPoint>> Get([FromQuery] GetPinPointRequest request) {
-        return Ok(await _mediator.Send(request));
+        return Ok(await mediator.Send(request));
     }
 
     [HttpPost]
     public async Task<ActionResult<Guid>> Post([FromQuery] CreatePinPointRequest request) {
-        return Ok(await _mediator.Send(request));
+        return Ok(await mediator.Send(request));
     }
 
     [HttpDelete]
     public async Task<ActionResult> Delete([FromQuery] DeletePinPointRequest request) {
-        await _mediator.Send(request);
+        await mediator.Send(request);
             
         return Ok();
     }
 
     [HttpPut]
     public async Task<ActionResult> Put([FromQuery] UpdatePinPointRequest request) {
-        await _mediator.Send(request);
+        await mediator.Send(request);
 
         return Ok();
     }

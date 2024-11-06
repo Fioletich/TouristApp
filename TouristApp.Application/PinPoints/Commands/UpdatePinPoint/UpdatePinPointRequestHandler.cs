@@ -20,8 +20,7 @@ public class UpdatePinPointRequestHandler : IRequestHandler<UpdatePinPointReques
         {
             throw new NotFoundException(nameof(PinPoints), request.Id);
         }
-
-        entity.CategoryId = request.CategoryId;
+        
         entity.Name = request.Name;
         entity.Description = request.Description;
         entity.XCoordinate = request.XCoordinate;
