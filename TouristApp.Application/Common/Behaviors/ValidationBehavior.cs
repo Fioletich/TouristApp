@@ -1,19 +1,16 @@
 ﻿using FluentValidation;
 using MediatR;
 
-namespace TouristApp.Application.Common.Beheviors;
+namespace TouristApp.Application.Common.Behaviors;
 
-public class ValidationBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse> {
-    private readonly IEnumerable<IValidator<TRequest>> _validators;
-
-    public ValidationBehavior(IEnumerable<IValidator<TRequest>> validators) {
-        _validators = validators;
-    }
+public class ValidationBehavior<TRequest, TResponse>(IEnumerable<IValidator<TRequest>> validators)
+    : IPipelineBehavior<TRequest, TResponse>
+    where TRequest : notnull {
 
     public Task<TResponse> Handle(TRequest request, RequestHandlerDelegate<TResponse> next, CancellationToken cancellationToken) {
         var context = new ValidationContext<TRequest>(request);
 
-        var failures = _validators
+        var failures = validators
             .Select(v => v.Validate(context))
             .SelectMany(r => r.Errors)
             .Where(f => f is not null)

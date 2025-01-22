@@ -837,6 +837,7 @@
       },
       "TouristApp.Persistance/1.0.0": {
         "dependencies": {
+          "Microsoft.EntityFrameworkCore.SqlServer": "9.0.0-rc.1.24451.1",
           "TouristApp.Application": "1.0.0"
         },
         "runtime": {

@@ -1,10 +1,10 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using TouristApp.Application.Users.Commands.CreateUser;
-using TouristApp.Application.Users.Commands.DeleteUser;
-using TouristApp.Application.Users.Commands.UpdateUserRequest;
-using TouristApp.Application.Users.Queries.GetAllUsers;
-using TouristApp.Application.Users.Queries.GetUser;
+using TouristApp.Application.RequestAndHandler.Users.Commands.CreateUser;
+using TouristApp.Application.RequestAndHandler.Users.Commands.DeleteUser;
+using TouristApp.Application.RequestAndHandler.Users.Commands.UpdateUserRequest;
+using TouristApp.Application.RequestAndHandler.Users.Queries.GetAllUsers;
+using TouristApp.Application.RequestAndHandler.Users.Queries.GetUser;
 using TouristApp.Domain.Models;
 
 namespace TouristApp.WebApi.Controllers;

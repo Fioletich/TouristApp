@@ -2,7 +2,7 @@
 using FluentValidation;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
-using TouristApp.Application.Common.Beheviors;
+using TouristApp.Application.Common.Behaviors;
 
 namespace TouristApp.Application;
 

@@ -1,10 +1,10 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using TouristApp.Application.Routes.Commands.CreateRoute;
-using TouristApp.Application.Routes.Commands.DeleteRoute;
-using TouristApp.Application.Routes.Commands.UpdateRoute;
-using TouristApp.Application.Routes.Queries.GetAllRoutes;
-using TouristApp.Application.Routes.Queries.GetRoute;
+using TouristApp.Application.RequestAndHandler.Routes.Commands.CreateRoute;
+using TouristApp.Application.RequestAndHandler.Routes.Commands.DeleteRoute;
+using TouristApp.Application.RequestAndHandler.Routes.Commands.UpdateRoute;
+using TouristApp.Application.RequestAndHandler.Routes.Queries.GetAllRoutes;
+using TouristApp.Application.RequestAndHandler.Routes.Queries.GetRoute;
 
 namespace TouristApp.WebApi.Controllers;
 

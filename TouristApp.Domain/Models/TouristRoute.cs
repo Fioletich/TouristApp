@@ -6,5 +6,5 @@ namespace TouristApp.Domain.Models;
 public class TouristRoute {
     [Column("Id")] public Guid Id { get; set; }
     [Column("RouteId")] public Guid RouteId { get; set; }
-    [Column("PinpointId")] public Guid PinPointId { get; set; }
+    [Column("PinpointId")] public Guid PinpointId { get; set; }
 }

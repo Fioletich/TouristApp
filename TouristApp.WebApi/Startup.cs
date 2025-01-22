@@ -7,24 +7,15 @@ using TouristApp.WebApi.Middleware;
 
 namespace TouristApp.WebApi;
 
-public class Startup {
-    public Startup(IConfiguration configuration) {
-        Configuration = configuration; 
-    }
-    public IConfiguration Configuration { get; }
+public class Startup(IConfiguration configuration) {
+    public IConfiguration Configuration { get; } = configuration;
 
     public void ConfigureServices(IServiceCollection services) {
         services.AddApplication();
+        services.AddPersistance(configuration);
         services.AddControllers();
         services.AddLogging();
-            
-        services.AddDbContext<TouristApplicationDbContext>(options => 
-        {
-            options.UseSqlServer(Configuration["DbConnection"], builder =>
-            {
-                builder.EnableRetryOnFailure(5, TimeSpan.FromSeconds(10), null);
-            });
-        });
+        
         services.AddScoped<ITouristApplicationDbContext>(provider => 
             provider.GetRequiredService<TouristApplicationDbContext>());
             

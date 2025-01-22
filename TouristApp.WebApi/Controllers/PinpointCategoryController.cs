@@ -1,10 +1,10 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
-using TouristApp.Application.PinpointsCategories.Commands.CreatePinpointCategory;
-using TouristApp.Application.PinpointsCategories.Commands.DeletePinpointCategory;
-using TouristApp.Application.PinpointsCategories.Queries.GetAllPinpointCategories;
-using TouristApp.Application.PinpointsCategories.Queries.GetPinpointCategory;
+using TouristApp.Application.RequestAndHandler.PinpointCategories.Commands.CreatePinpointCategory;
+using TouristApp.Application.RequestAndHandler.PinpointCategories.Commands.DeletePinpointCategory;
+using TouristApp.Application.RequestAndHandler.PinpointCategories.Queries.GetAllPinpointCategories;
+using TouristApp.Application.RequestAndHandler.PinpointCategories.Queries.GetPinpointCategory;
 using TouristApp.Domain.Models;
 
 namespace TouristApp.WebApi.Controllers;

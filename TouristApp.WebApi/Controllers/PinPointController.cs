@@ -1,10 +1,10 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using TouristApp.Application.PinPoints.Commands.CreatePinPoint;
-using TouristApp.Application.PinPoints.Commands.DeletePinPoint;
-using TouristApp.Application.PinPoints.Commands.UpdatePinPoint;
-using TouristApp.Application.PinPoints.Queries.GetAllPinPoints;
-using TouristApp.Application.PinPoints.Queries.GetPinPoint;
+using TouristApp.Application.RequestAndHandler.Pinpoints.Commands.CreatePinpoint;
+using TouristApp.Application.RequestAndHandler.Pinpoints.Commands.DeletePinpoint;
+using TouristApp.Application.RequestAndHandler.Pinpoints.Commands.UpdatePinpoint;
+using TouristApp.Application.RequestAndHandler.Pinpoints.Queries.GetAllPinPoints;
+using TouristApp.Application.RequestAndHandler.Pinpoints.Queries.GetPinPoint;
 using TouristApp.Domain.Models;
 
 namespace TouristApp.WebApi.Controllers;
@@ -13,29 +13,29 @@ namespace TouristApp.WebApi.Controllers;
 [Route("api/[controller]/[action]")]
 public class PinPointController(IMediator mediator) : ControllerBase {
     [HttpGet]
-    public async Task<ActionResult<IEnumerable<PinPoint>>> GetAll() {
-        return Ok(await mediator.Send(new GetAllPinPointsRequest()));
+    public async Task<ActionResult<IEnumerable<Pinpoint>>> GetAll() {
+        return Ok(await mediator.Send(new GetAllPinpointsRequest()));
     }
 
     [HttpGet]
-    public async Task<ActionResult<PinPoint>> Get([FromQuery] GetPinPointRequest request) {
+    public async Task<ActionResult<Pinpoint>> Get([FromQuery] GetPinpointRequest request) {
         return Ok(await mediator.Send(request));
     }
 
     [HttpPost]
-    public async Task<ActionResult<Guid>> Post([FromQuery] CreatePinPointRequest request) {
+    public async Task<ActionResult<Guid>> Post([FromQuery] CreatePinpointRequest request) {
         return Ok(await mediator.Send(request));
     }
 
     [HttpDelete]
-    public async Task<ActionResult> Delete([FromQuery] DeletePinPointRequest request) {
+    public async Task<ActionResult> Delete([FromQuery] DeletePinpointRequest request) {
         await mediator.Send(request);
             
         return Ok();
     }
 
     [HttpPut]
-    public async Task<ActionResult> Put([FromQuery] UpdatePinPointRequest request) {
+    public async Task<ActionResult> Put([FromQuery] UpdatePinpointRequest request) {
         await mediator.Send(request);
 
         return Ok();

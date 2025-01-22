@@ -1,10 +1,10 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using TouristApp.Application.Categories.Commands.CreateCategory;
-using TouristApp.Application.Categories.Commands.DeleteCategory;
-using TouristApp.Application.Categories.Commands.UpdateCategory;
-using TouristApp.Application.Categories.Queries.GetAllCategories;
-using TouristApp.Application.Categories.Queries.GetCategory;
+using TouristApp.Application.RequestAndHandler.Categories.Commands.CreateCategory;
+using TouristApp.Application.RequestAndHandler.Categories.Commands.DeleteCategory;
+using TouristApp.Application.RequestAndHandler.Categories.Commands.UpdateCategory;
+using TouristApp.Application.RequestAndHandler.Categories.Queries.GetAllCategories;
+using TouristApp.Application.RequestAndHandler.Categories.Queries.GetCategory;
 using TouristApp.Domain.Models;
 
 namespace TouristApp.WebApi.Controllers;
