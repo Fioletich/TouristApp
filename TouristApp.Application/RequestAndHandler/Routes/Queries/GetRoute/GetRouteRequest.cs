@@ -1,8 +1,7 @@
 ﻿using MediatR;
 using TouristApp.Domain.Models;
+using TouristApp.Domain.Models.Route;
 
 namespace TouristApp.Application.RequestAndHandler.Routes.Queries.GetRoute;
 
-public class GetRouteRequest : IRequest<Route>{
-    public Guid Id { get; set; }
-}
+public record GetRouteRequest(Guid Id) : IRequest<Route>;

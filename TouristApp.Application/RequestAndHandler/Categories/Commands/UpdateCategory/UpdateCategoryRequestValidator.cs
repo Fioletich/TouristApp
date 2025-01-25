@@ -8,12 +8,10 @@ public class UpdateCategoryRequestValidator : AbstractValidator<UpdateCategoryRe
             .NotEqual(Guid.Empty);
 
         RuleFor(c => c.Name)
-            .NotNull()
             .NotEqual(string.Empty)
             .MaximumLength(255);
 
         RuleFor(c => c.Description)
-            .NotNull()
             .NotEqual(string.Empty)
             .MaximumLength(255);
     }

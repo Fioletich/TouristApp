@@ -8,12 +8,10 @@ public class UpdateRouteRequestValidator : AbstractValidator<UpdateRouteRequest>
             .NotEqual(Guid.Empty);
 
         RuleFor(request => request.Name)
-            .NotNull()
             .NotEqual(string.Empty)
             .MaximumLength(255);
 
         RuleFor(request => request.Description)
-            .NotNull()
             .NotEqual(string.Empty)
             .MaximumLength(255);
     }

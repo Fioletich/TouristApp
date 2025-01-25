@@ -1,25 +1,31 @@
-﻿using MediatR;
+﻿using AutoMapper;
+using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using TouristApp.Application.RequestAndHandler.Categories.Commands.CreateCategory;
 using TouristApp.Application.RequestAndHandler.Categories.Commands.DeleteCategory;
 using TouristApp.Application.RequestAndHandler.Categories.Commands.UpdateCategory;
 using TouristApp.Application.RequestAndHandler.Categories.Queries.GetAllCategories;
 using TouristApp.Application.RequestAndHandler.Categories.Queries.GetCategory;
-using TouristApp.Domain.Models;
+using TouristApp.Domain.Models.Category;
 
 namespace TouristApp.WebApi.Controllers;
 
+[Authorize]
 [ApiController]
 [Route("api/[controller]/[action]")]
-public class CategoryController(IMediator mediator) : ControllerBase {
+public class CategoryController(IMediator mediator, IMapper mapper) : ControllerBase {
     [HttpGet]
-    public async Task<ActionResult<IEnumerable<Category>>> GetAll() {
-        return Ok(await mediator.Send(new GetAllCategoriesRequest()));
+    public async Task<ActionResult<IEnumerable<CategoryDTO>>> GetAll() {
+        var categories = (await mediator.Send(new GetAllCategoriesRequest()))
+            .Select(mapper.Map<CategoryDTO>);
+        
+        return Ok(categories);
     }
 
     [HttpGet]
-    public async Task<ActionResult<Category>> Get([FromQuery] GetCategoryRequest request) {
-        return Ok(await mediator.Send(request));
+    public async Task<ActionResult<CategoryDTO>> Get([FromQuery] GetCategoryRequest request) {
+        return Ok(mapper.Map<CategoryDTO>(await mediator.Send(request)));
     }
 
     [HttpPost]
@@ -28,7 +34,7 @@ public class CategoryController(IMediator mediator) : ControllerBase {
     }
 
     [HttpDelete]
-    public async Task<ActionResult> Delete([FromQuery] DeleteCategoryRequest request) {
+    public async Task<ActionResult> Remove([FromQuery] DeleteCategoryRequest request) {
         await mediator.Send(request);
 
         return Ok();

@@ -2,25 +2,24 @@
 using Microsoft.EntityFrameworkCore;
 using TouristApp.Application.Exceptions;
 using TouristApp.Application.Interfaces;
-using TouristApp.Domain.Models;
+using TouristApp.Domain.Models.Category;
 
 namespace TouristApp.Application.RequestAndHandler.Categories.Commands.UpdateCategory;
 
 public class UpdateCategoryRequestHandler(ITouristApplicationDbContext context) : IRequestHandler<UpdateCategoryRequest> {
-    private readonly ITouristApplicationDbContext _context = context;
-
     public async Task Handle(UpdateCategoryRequest request, CancellationToken cancellationToken) {
-        var entity = await _context
+        var category = await context
             .Categories.FirstOrDefaultAsync(c => c.Id == request.Id, cancellationToken);
 
-        if (entity is null || request.Id != entity.Id)
+        if (category is null || request.Id != category.Id)
         {
             throw new NotFoundException(nameof(Category), request.Id);
         }
 
-        entity.Name = request.Name;
-        entity.Description = request.Description;
+        category.Name = request.Name ?? category.Name;
+        category.Description = request.Description ?? category.Description;
+        category.Update();
 
-        await _context.SaveChangesAsync(cancellationToken);
+        await context.SaveChangesAsync(cancellationToken);
     }
 }

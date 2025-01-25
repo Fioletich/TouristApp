@@ -2,7 +2,4 @@
 
 namespace TouristApp.Application.RequestAndHandler.Routes.Commands.CreateRoute;
 
-public class CreateRouteRequest : IRequest<Guid> {
-    public string Name { get; set; }
-    public string Description { get; set; }
-}
+public record CreateRouteRequest(Guid UserId, string Name, string Description) : IRequest<Guid>;

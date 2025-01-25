@@ -7,15 +7,15 @@ namespace TouristApp.Application.RequestAndHandler.Pinpoints.Commands.DeletePinp
 
 public class DeletePinpointRequestHandler(ITouristApplicationDbContext context) : IRequestHandler<DeletePinpointRequest> {
     public async Task Handle(DeletePinpointRequest request, CancellationToken cancellationToken) {
-        var entity = await context.Pinpoints
+        var pinpoint = await context.Pinpoints
             .FirstOrDefaultAsync(p => p.Id == request.Id, cancellationToken);
         
-        if (entity is null || entity.Id != request.Id)
+        if (pinpoint is null || pinpoint.Id != request.Id)
         {
             throw new NotFoundException(nameof(Pinpoints), request.Id);
         }
 
-        context.Pinpoints.Remove(entity);
+        context.Pinpoints.Remove(pinpoint);
 
         await context.SaveChangesAsync(cancellationToken);
     }

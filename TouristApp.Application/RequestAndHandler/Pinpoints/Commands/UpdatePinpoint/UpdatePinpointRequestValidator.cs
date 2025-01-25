@@ -8,12 +8,10 @@ public class UpdatePinpointRequestValidator : AbstractValidator<UpdatePinpointRe
             .NotEqual(Guid.Empty);
         
         RuleFor(request => request.Name)
-            .NotNull()
             .NotEqual(string.Empty)
             .MaximumLength(255);
 
         RuleFor(request => request.Description)
-            .NotNull()
             .NotEqual(string.Empty)
             .MaximumLength(255);
 
@@ -21,12 +19,10 @@ public class UpdatePinpointRequestValidator : AbstractValidator<UpdatePinpointRe
             .MaximumLength(255);
 
         RuleFor(request => request.XCoordinate)
-            .NotEmpty()
             .GreaterThan(-180m)
             .LessThan(180m);
         
         RuleFor(request => request.YCoordinate)
-            .NotEmpty()
             .GreaterThan(-85m)
             .LessThan(85m);
     }

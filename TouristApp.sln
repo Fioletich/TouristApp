@@ -8,8 +8,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TouristApp.Persistance", "T
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TouristApp.WebApi", "TouristApp.WebApi\TouristApp.WebApi.csproj", "{7024D40B-F909-4AE3-99E2-73F17B45705D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TouristApp.Tests", "TouristApp.Tests\TouristApp.Tests.csproj", "{CE730548-3E95-4B2B-BE77-0D8F48CBFDF2}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -32,9 +30,5 @@ Global
 		{7024D40B-F909-4AE3-99E2-73F17B45705D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7024D40B-F909-4AE3-99E2-73F17B45705D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7024D40B-F909-4AE3-99E2-73F17B45705D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{CE730548-3E95-4B2B-BE77-0D8F48CBFDF2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CE730548-3E95-4B2B-BE77-0D8F48CBFDF2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CE730548-3E95-4B2B-BE77-0D8F48CBFDF2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CE730548-3E95-4B2B-BE77-0D8F48CBFDF2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

@@ -2,7 +2,4 @@
 
 namespace TouristApp.Application.RequestAndHandler.Categories.Commands.CreateCategory;
 
-public class CreateCategoryRequest : IRequest<Guid> {
-    public string Name { get; set; }
-    public string Description { get; set; }
-}
+public record CreateCategoryRequest(string Name, string Description) : IRequest<Guid>;

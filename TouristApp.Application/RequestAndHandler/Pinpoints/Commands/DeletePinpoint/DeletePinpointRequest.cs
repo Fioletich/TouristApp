@@ -2,6 +2,4 @@
 
 namespace TouristApp.Application.RequestAndHandler.Pinpoints.Commands.DeletePinpoint;
 
-public class DeletePinpointRequest : IRequest {
-    public Guid Id { get; set; }
-}
+public record DeletePinpointRequest(Guid Id) : IRequest;

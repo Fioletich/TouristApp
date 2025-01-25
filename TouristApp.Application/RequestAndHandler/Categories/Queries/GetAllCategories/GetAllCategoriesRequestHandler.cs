@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using TouristApp.Application.Interfaces;
 using TouristApp.Domain.Models;
+using TouristApp.Domain.Models.Category;
 
 namespace TouristApp.Application.RequestAndHandler.Categories.Queries.GetAllCategories;
 

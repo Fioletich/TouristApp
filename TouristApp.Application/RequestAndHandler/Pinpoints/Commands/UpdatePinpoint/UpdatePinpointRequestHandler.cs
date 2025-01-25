@@ -6,24 +6,32 @@ using TouristApp.Application.Interfaces;
 namespace TouristApp.Application.RequestAndHandler.Pinpoints.Commands.UpdatePinpoint;
 
 public class UpdatePinpointRequestHandler(ITouristApplicationDbContext context)
-    : IRequestHandler<UpdatePinpointRequest, Unit> {
-    public async Task<Unit> Handle(UpdatePinpointRequest request, CancellationToken cancellationToken) {
-        var entity = await context.Pinpoints
+    : IRequestHandler<UpdatePinpointRequest> {
+    public async Task Handle(UpdatePinpointRequest request, CancellationToken cancellationToken) {
+        var pinpoint = await context.Pinpoints
             .FirstOrDefaultAsync(p => p.Id == request.Id, cancellationToken);
 
-        if (entity is null || entity.Id != request.Id)
+        if (pinpoint is null || pinpoint.Id != request.Id)
         {
             throw new NotFoundException(nameof(Pinpoints), request.Id);
         }
         
-        entity.Name = request.Name;
-        entity.Description = request.Description;
-        entity.AudioUrl = request.AudioUrl;
-        entity.XCoordinate = request.XCoordinate;
-        entity.YCoordinate = request.YCoordinate;
+        pinpoint.Name = request.Name ?? pinpoint.Name;
+        pinpoint.Description = request.Description ?? pinpoint.Description;
+        pinpoint.AudioUrl = request.AudioUrl ?? pinpoint.AudioUrl;
+
+        if (request.XCoordinate != 0.0m)
+        {
+            pinpoint.XCoordinate = request.XCoordinate;
+        }
+
+        if (request.YCoordinate != 0.0m)
+        {
+            pinpoint.YCoordinate = request.YCoordinate;
+        }
+        
+        pinpoint.Update();
 
         await context.SaveChangesAsync(cancellationToken);
-
-        return Unit.Value;
     }
 }

@@ -1,8 +1,7 @@
 ﻿using MediatR;
 using TouristApp.Domain.Models;
+using TouristApp.Domain.Models.Category;
 
 namespace TouristApp.Application.RequestAndHandler.Categories.Queries.GetAllCategories;
 
-public class GetAllCategoriesRequest : IRequest<IEnumerable<Category>> {
-    
-}
+public record GetAllCategoriesRequest : IRequest<IEnumerable<Category>>;

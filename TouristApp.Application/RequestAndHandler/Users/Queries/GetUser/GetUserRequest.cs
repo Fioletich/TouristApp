@@ -1,8 +1,7 @@
 ﻿using MediatR;
 using TouristApp.Domain.Models;
+using TouristApp.Domain.Models.User;
 
 namespace TouristApp.Application.RequestAndHandler.Users.Queries.GetUser;
 
-public class GetUserRequest : IRequest<User> {
-    public Guid UserId { get; set; }
-}
+public record GetUserRequest(Guid Id) : IRequest<User>;

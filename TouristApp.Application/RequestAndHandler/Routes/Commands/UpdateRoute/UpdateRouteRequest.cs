@@ -2,8 +2,4 @@
 
 namespace TouristApp.Application.RequestAndHandler.Routes.Commands.UpdateRoute;
 
-public class UpdateRouteRequest : IRequest {
-    public Guid Id { get; set; }
-    public string Name { get; set; }
-    public string Description { get; set; }
-}
+public record UpdateRouteRequest(Guid Id, string? Name, string? Description) : IRequest;

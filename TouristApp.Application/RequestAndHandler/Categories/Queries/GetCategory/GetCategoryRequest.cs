@@ -1,8 +1,6 @@
 ﻿using MediatR;
-using TouristApp.Domain.Models;
+using TouristApp.Domain.Models.Category;
 
 namespace TouristApp.Application.RequestAndHandler.Categories.Queries.GetCategory;
 
-public class GetCategoryRequest : IRequest<Category> {
-    public Guid Id { get; set; }
-}
+public record GetCategoryRequest(Guid Id) : IRequest<Category>;

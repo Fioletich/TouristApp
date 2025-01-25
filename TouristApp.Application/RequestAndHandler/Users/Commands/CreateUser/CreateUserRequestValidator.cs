@@ -9,18 +9,12 @@ public class CreateUserRequestValidator : AbstractValidator<CreateUserRequest> {
             .NotEqual(string.Empty)
             .MaximumLength(255);
 
+        RuleFor(request => request.RoleId)
+            .NotNull();
+
         RuleFor(request => request.Password)
             .NotNull()
             .NotEqual(string.Empty)
-            .MaximumLength(255);
-
-        RuleFor(reqest => reqest.PhoneNumber)
-            .MaximumLength(13);
-
-        RuleFor(request => request.Bio)
-            .MaximumLength(255);
-
-        RuleFor(requst => requst.Country)
             .MaximumLength(255);
 
         RuleFor(request => request.City)

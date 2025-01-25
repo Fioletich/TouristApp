@@ -1,8 +1,7 @@
 ﻿using MediatR;
 using TouristApp.Domain.Models;
+using TouristApp.Domain.Models.Pinpoint;
 
 namespace TouristApp.Application.RequestAndHandler.Pinpoints.Queries.GetPinPoint;
 
-public class GetPinpointRequest : IRequest<Pinpoint> {
-    public Guid Id { get; set; }
-}
+public record GetPinpointRequest(Guid Id) : IRequest<Pinpoint>;

@@ -3,20 +3,21 @@ using Microsoft.EntityFrameworkCore;
 using TouristApp.Application.Exceptions;
 using TouristApp.Application.Interfaces;
 using TouristApp.Domain.Models;
+using TouristApp.Domain.Models.User;
 
 namespace TouristApp.Application.RequestAndHandler.Users.Commands.DeleteUser;
 
 public class DeleteUserRequestHandler(ITouristApplicationDbContext context) : IRequestHandler<DeleteUserRequest> {
     public async Task Handle(DeleteUserRequest request, CancellationToken cancellationToken) {
-        var entity = await context.Users
+        var user = await context.Users
             .FirstOrDefaultAsync(u => u.Id == request.UserId, cancellationToken);
 
-        if (entity is null || entity.Id != request.UserId)
+        if (user is null || user.Id != request.UserId)
         {
             throw new NotFoundException(nameof(User), request.UserId);
         }
 
-        context.Users.Remove(entity);
+        context.Users.Remove(user);
         await context.SaveChangesAsync(cancellationToken);
     }
 }

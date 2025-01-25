@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using TouristApp.Application.Interfaces;
 using TouristApp.Domain.Models;
+using TouristApp.Domain.Models.User;
 
 namespace TouristApp.Application.RequestAndHandler.Users.Queries.GetAllUsers;
 

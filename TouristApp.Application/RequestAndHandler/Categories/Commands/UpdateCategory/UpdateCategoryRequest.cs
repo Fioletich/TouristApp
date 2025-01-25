@@ -1,9 +1,6 @@
 ﻿using MediatR;
+using TouristApp.Domain.Models.Category;
 
 namespace TouristApp.Application.RequestAndHandler.Categories.Commands.UpdateCategory;
 
-public class UpdateCategoryRequest : IRequest {
-    public Guid Id { get; set; }
-    public string Name { get; set; }
-    public string Description { get; set; }
-}
+public record UpdateCategoryRequest(Guid Id, string? Name, string? Description) : IRequest;
