@@ -1,3 +1,9 @@
 ﻿namespace TouristApp.Domain.Models.User;
 
-public record UserDTO(Guid Id, Guid RoleId, string Login, string Password, string? City);
+public class UserDTO {
+    public Guid Id { get; set; }
+    public Guid RoleId { get; set; }
+    public string Login { get; set; }
+    public string Password { get; set; }
+    public string? City { get; set; }
+}

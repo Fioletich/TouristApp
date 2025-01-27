@@ -1,3 +1,6 @@
 ﻿namespace TouristApp.Domain.Models.Role;
 
-public record RoleDTO(Guid Id, string Name); 
+public class RoleDTO {
+    public Guid Id { get; set; }
+    public string Name { get; set; }
+}

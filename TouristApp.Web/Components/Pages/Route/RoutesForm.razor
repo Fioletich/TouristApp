@@ -1,0 +1,118 @@
+﻿@using AutoMapper
+@using MediatR
+@inject IJSRuntime Js;
+@inject IMediator Mediator;
+@inject IMapper Mapper
+@rendermode InteractiveServer
+
+<!DOCTYPE html>
+
+<html lang="">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title></title>
+</head>
+
+@if (_isDataLoaded)
+{
+    <body class="flex-column">
+    <aside id="routeMap" style="width: 100%; height:500px; overflow: hidden; position: relative"></aside>
+    <form>
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="routeNameSpan">Название</span>
+            <input class="form-control" id="routeName" placeholder="Название" type="text" @bind-value="@_route.Name" required autocomplete="off">
+        </div>
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="routeDescriptionSpan">Описание</span>
+            <input class="form-control" id="routeName" placeholder="Описание" type="text" @bind-value="@_route.Description" required autocomplete="off">
+        </div>
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="routeIdSpan">Маршруты</span>
+            <select class="form-select" id="routeIdSelector" @onclick="RouteSelected" @bind="@_route.Id">
+                <option value="00000000-0000-0000-0000-000000000000">Выберите маршрут</option>
+                @if (_routes != null)
+                {
+                    foreach (var route in _routes)
+                    {
+                        <option value="@route.Id">@route.Name</option>
+                    }
+                }
+            </select>
+            <span class="input-group-text">Для редактирования необходимо выбрать маршрут</span>
+        </div>
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="firstCoordsSpan">Координаты первой точки*</span>
+            <input class="form-control" id="firstCoords" placeholder="Координаты: X.xxxxxx, Y.yyyyyy" type="text" @bind-value="@_firstPinpointToBuild" autocomplete="off">
+        </div>
+        @if (_isRouteSelected)
+        {
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="pinpointAddIdSpan">Точки для добавления</span>
+            <select class="form-select" id="pinpointAddIdSelector" @bind="@_pinpointIdForAdd">
+                <option value="00000000-0000-0000-0000-000000000000">Выберите точку</option>
+                @if (_pinpoints != null)
+                {
+                    foreach (var pinpoint in _pinpoints)
+                    {
+                        <option value="@pinpoint.Id">@pinpoint.Name</option>
+                    }
+                }
+            </select>
+        </div>
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="pinpointDeleteIdSpan">Точки для удаления</span>
+            <select class="form-select" id="pinpointDeleteIdSelector" @bind="@_pinpointIdForDeletion">
+                <option value="00000000-0000-0000-0000-000000000000">Выберите точку</option>
+                @foreach (var pinpoint in _pinpointsOfSelected)
+                { 
+                    <option value="@pinpoint.Id">@pinpoint.Name</option>
+                }
+            </select>
+        </div>
+        }
+        <div class="input-group mb-3">
+            <div class="btn-group">
+                <button class="btn btn-primary" @onclick="CreateRoute">
+                    Создать
+                </button>
+                @if (_isRouteSelected)
+                {
+                    <button class="btn btn-primary" @onclick="DeleteRoute" formnovalidate>
+                        Удалить
+                    </button>
+
+                    <button class="btn btn-primary" @onclick="UpdateRoute">
+                        Изменить
+                    </button>
+
+                    <button class="btn btn-primary" type="button" @onclick="CheckRoute" formnovalidate>
+                        Просмотреть
+                    </button>
+                }
+            </div>
+        </div>
+        <div class="input-group mb-3">
+            @if (_isRouteSelected)
+            {
+                <div class="btn-group">
+                    <button class="btn btn-primary" @onclick="AddPinpoint" formnovalidate>
+                        Добавить точку
+                    </button>
+
+                    <button class="btn btn-primary" @onclick="RemovePinpoint" formnovalidate>
+                        Удалить точку
+                    </button>
+                </div>
+            }
+        </div>
+    </form>
+    </body>
+}
+
+</html>
+
+@code {
+    
+}

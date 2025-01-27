@@ -1,3 +1,6 @@
 ﻿namespace TouristApp.Domain.Models.PinpointRoute;
 
-public record PinpointRouteDTO(Guid PinpointId, Guid RouteId);
+public class PinpointRouteDTO {
+    public Guid PinpointId { get; set; }
+    public Guid RouteId { get; set; }
+}

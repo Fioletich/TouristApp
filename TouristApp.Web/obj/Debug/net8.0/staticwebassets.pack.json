@@ -1,0 +1,61 @@
+{
+  "Files": [
+    {
+      "Id": "D:\\Works\\RiderProjects\\TouristApp\\TouristApp.Web\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\TouristApp.Web.bundle.scp.css",
+      "PackagePath": "staticwebassets\\TouristApp.Web.bundle.scp.css"
+    },
+    {
+      "Id": "D:\\Works\\RiderProjects\\TouristApp\\TouristApp.Web\\wwwroot\\app.css",
+      "PackagePath": "staticwebassets\\app.css"
+    },
+    {
+      "Id": "D:\\Works\\RiderProjects\\TouristApp\\TouristApp.Web\\wwwroot\\bootstrap\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\bootstrap\\bootstrap.min.css"
+    },
+    {
+      "Id": "D:\\Works\\RiderProjects\\TouristApp\\TouristApp.Web\\wwwroot\\bootstrap\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\bootstrap\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "D:\\Works\\RiderProjects\\TouristApp\\TouristApp.Web\\wwwroot\\favicon.png",
+      "PackagePath": "staticwebassets\\favicon.png"
+    },
+    {
+      "Id": "D:\\Works\\RiderProjects\\TouristApp\\TouristApp.Web\\wwwroot\\js\\geoLocationJsInterop.js",
+      "PackagePath": "staticwebassets\\js\\geoLocationJsInterop.js"
+    },
+    {
+      "Id": "D:\\Works\\RiderProjects\\TouristApp\\TouristApp.Web\\wwwroot\\js\\pinpointMapScript.js",
+      "PackagePath": "staticwebassets\\js\\pinpointMapScript.js"
+    },
+    {
+      "Id": "D:\\Works\\RiderProjects\\TouristApp\\TouristApp.Web\\wwwroot\\js\\routeMapScript.js",
+      "PackagePath": "staticwebassets\\js\\routeMapScript.js"
+    },
+    {
+      "Id": "D:\\Works\\RiderProjects\\TouristApp\\TouristApp.Web\\wwwroot\\js\\script.js",
+      "PackagePath": "staticwebassets\\js\\script.js"
+    },
+    {
+      "Id": "D:\\Works\\RiderProjects\\TouristApp\\TouristApp.Web\\wwwroot\\js\\searchMapScript.js",
+      "PackagePath": "staticwebassets\\js\\searchMapScript.js"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.TouristApp.Web.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.TouristApp.Web.props",
+      "PackagePath": "build\\TouristApp.Web.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.TouristApp.Web.props",
+      "PackagePath": "buildMultiTargeting\\TouristApp.Web.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.TouristApp.Web.props",
+      "PackagePath": "buildTransitive\\TouristApp.Web.props"
+    }
+  ],
+  "ElementsToRemove": []
+}
