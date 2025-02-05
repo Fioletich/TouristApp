@@ -1,0 +1,101 @@
+﻿@using AutoMapper
+@using MediatR
+@inject IMediator Mediator
+@inject IMapper Mapper
+@inject IJSRuntime Js;
+@rendermode InteractiveServer
+
+<html lang="">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <title>Туристические маршруты</title>
+</head>
+
+<body class="flex-column">
+@if (_isDataLoaded)
+{
+    <aside id="pinpointMap" style="width: 100%; height:500px; overflow: hidden; position: relative"></aside>
+    <form>
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="pinpointNameSpan">Название</span>
+            <input class="form-control" id="categoryName" placeholder="Название" type="text" @bind-value="@_pinpoint.Name" required autocomplete="off">
+        </div>
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="pinpointDescriptionSpan">Описание</span>
+            <input class="form-control" id="categoryName" placeholder="Описание" type="text" @bind-value="@_pinpoint.Description" required autocomplete="off">
+        </div>
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="pinpointAudioSpan">Ссылка на аудио*</span>
+            <input class="form-control" id="categoryName" placeholder="Ссылка" type="text" @bind-value="@_pinpoint.AudioUrl" autocomplete="off">
+        </div>
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="pinpointDescriptionSpan">Координаты</span>
+            <input class="form-control" id="categoryName" placeholder="Координаты: X.xxxxxx, Y.yyyyyy" type="text" @bind-value="@_coordinates" required autocomplete="off">
+        </div>
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="pinpointIdSpan">Достопримечательности</span>
+            <select class="form-select" id="pinpointIdSelector" @bind="@_pinpoint.Id" @onclick="PinpointSelected">
+                <option value="00000000-0000-0000-0000-000000000000">Выберите точку</option>
+                @foreach (var pinpoint in _pinpoints!)
+                {
+                    <option value="@pinpoint.Id">@pinpoint.Name</option>
+                }
+            </select>
+            <span class="input-group-text">Для редактирования необходимо выбрать достопримечательность</span>
+        </div>
+        @if (_isPinpointSelected)
+        {
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="pinpointAddIdSpan">Категории для добавления</span>
+                <select class="form-select" id="pinpointAddIdSelector" @bind="@_categoryIdForAdd">
+                    <option value="00000000-0000-0000-0000-000000000000">Выберите категорию</option>
+                    @if (_categories != null)
+                    {
+                        foreach (var category in _categories)
+                        {
+                            <option value="@category.Id">@category.Name</option>
+                        }
+                    }
+                </select>
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="pinpointDeleteIdSpan">Категории для удаления</span>
+                <select class="form-select" id="pinpointDeleteIdSelector" @bind="@_categoryIdForDeletion">
+                    <option value="00000000-0000-0000-0000-000000000000">Выберите категорию</option>
+                    @foreach (var category in _categoriesOfSelected)
+                    {
+                        <option value="@category.Id">@category.Name</option>
+                    }
+                </select>
+            </div>
+        }
+        <div class="input-group mb-3">
+            <div class="btn-group">
+                <button class="btn btn-primary" @onclick="SavePinpoint">
+                    Создать
+                </button>
+                @if (_isPinpointSelected)
+                {
+                    <button class="btn btn-primary" @onclick="DeletePinpoint" formnovalidate>
+                        Удалить
+                    </button>
+
+                    <button class="btn btn-primary" @onclick="UpdatePinpoint">
+                        Изменить
+                    </button>
+                }
+                <button class="btn btn-primary" type="button" @onclick="CheckPinpoint" formnovalidate>
+                    Просмотреть
+                </button>
+            </div>
+        </div>
+    </form>
+}
+
+</body>
+</html>
+
+@code {
+    
+}

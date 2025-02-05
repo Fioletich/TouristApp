@@ -1,0 +1,97 @@
+﻿@page "/RoutePage"
+@using AutoMapper
+@using MediatR
+@inject IMediator Mediator
+@inject IMapper Mapper
+
+<head>
+    <meta charset="utf-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous" />
+    <link rel="stylesheet" type="text/css" href="generated/css/common.css" />
+    <link rel="stylesheet" type="text/css" href="generated/css/fonts.css" />
+    <link rel="stylesheet" type="text/css" href="generated/css/RoadsFullsize.css" />
+</head>
+
+<body class="flex-column">
+
+<section class="roads-fullsize mainSection">
+    <!-- Main section of the page -->
+    <div class="searchCol">
+        <section class="searchSection">
+            <!-- Search section with input and category selection -->
+            <div class="searchContent">
+                <p class="searchTerm">Маршруты</p>
+                <div class="searchInputWrapper">
+                    <div class="inputBlock">
+                        <p class="inputPrompt">Введите запрос</p>
+                    </div>
+                    <button class="categoryBtn">
+                        <!-- TODO -->
+                        <p class="categoryPrompt">Выбрать категорию поиска</p>
+                        <img class="categoryIcon" src="generated/assets/RoadsFullsize/down_arrow.svg" alt="alt text" />
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <div class="col3">
+            @for (int i = 0; i < _routes.Count(); i += 2)
+            {
+                <div class="col4">
+                    <div class="block4">
+                        <div class="col5">
+                            <div class="col6">
+                                <div class="block31" style="--src:url(../wwwroot/generated/assets/RoadsFullsize/gradient_background.png)">
+                                    <div class="info3">img</div>
+                                </div>
+                                <div class="col7">
+                                    <p class="info4">@_routes[i].Name</p>
+                                    <div class="col2">
+                                        @foreach (var pinpoint in _routesPinpoints[_routes[i].Id])
+                                        {
+                                            <div class="info5">@pinpoint.Name</div>
+                                            <div class="color1"></div>
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                            <img class="image" src="generated/assets/RoadsFullsize/bookmark_icon.svg" alt="alt text"/>
+                        </div>
+                    </div>
+                    @if (i != _routes.Length - 1)
+                    {
+                        <div class="block4">
+                            <div class="col5">
+                                <div class="col6">
+                                    <div class="block31" style="--src:url(../wwwroot/generated/assets/RoadsFullsize/gradient_background.png)">
+                                        <div class="info3">img</div>
+                                    </div>
+                                    <div class="col7">
+                                        <div class="info4">@_routes[i + 1].Name</div>
+                                        <div class="col2">
+                                            @foreach (var pinpoint in _routesPinpoints[_routes[i + 1].Id])
+                                            {
+                                                <div class="info5">@pinpoint.Name</div>
+                                                <div class="color1"></div>
+                                            }
+                                        </div>
+                                    </div>
+                                </div>
+                                <img class="image" src="generated/assets/RoadsFullsize/bookmark_icon.svg" alt="alt text"/>
+                            </div>
+                        </div>
+                    }
+                </div>
+            }
+        </div>
+    </div>
+</section>
+</body>
+
+@code {
+
+    
+
+}

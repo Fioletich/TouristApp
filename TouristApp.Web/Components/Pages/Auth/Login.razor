@@ -1,0 +1,21 @@
+﻿@page "/Login"
+@rendermode @(new InteractiveServerRenderMode(prerender: false))
+@using Microsoft.AspNetCore.Components.Authorization
+
+<PageTitle>Авторизация</PageTitle>
+
+<div class="container-xl my-md-4">
+    <CascadingAuthenticationState>
+        <AuthorizeView>
+            <Authorized>
+                <div>Hello, @context.User.Identities.First().Claims.FirstOrDefault(c => c.Type == "role")</div>
+            </Authorized>
+            <NotAuthorized>
+                <div>You're not authorized</div>
+            </NotAuthorized>
+        </AuthorizeView>
+    </CascadingAuthenticationState>
+    <AuthForm></AuthForm>
+</div>
+@code {
+}

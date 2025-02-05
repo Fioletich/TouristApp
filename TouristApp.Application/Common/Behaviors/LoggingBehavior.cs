@@ -1,9 +1,9 @@
 ﻿using MediatR;
 using Serilog;
 
-namespace TouristApp.Application.Common.Beheviors;
+namespace TouristApp.Application.Common.Behaviors;
 
-public class LoggingBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse> {
+public class LoggingBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse> where TRequest : notnull {
     public async Task<TResponse> Handle(TRequest request, RequestHandlerDelegate<TResponse> next, CancellationToken cancellationToken) {
         var requestName = typeof(TRequest).Name;
         

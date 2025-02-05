@@ -1,0 +1,56 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="AutoMapper" Version="13.0.1" />
+      <PackageReference Include="MediatR" Version="12.4.1" />
+      <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.12" />
+      <PackageReference Include="Microsoft.AspNetCore.Authorization" Version="8.0.12" />
+      <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.1">
+        <PrivateAssets>all</PrivateAssets>
+        <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      </PackageReference>
+      <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="9.0.1">
+        <PrivateAssets>all</PrivateAssets>
+        <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      </PackageReference>
+      <PackageReference Include="Serilog.AspNetCore" Version="9.0.0" />
+      <PackageReference Include="Serilog.Sinks.File" Version="6.0.0" />
+      <PackageReference Include="Swashbuckle.AspNetCore.Annotations" Version="7.2.0" />
+      <PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="7.2.0" />
+      <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="7.2.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\TouristApp.Application\TouristApp.Application.csproj" />
+      <ProjectReference Include="..\TouristApp.Domain\TouristApp.Domain.csproj" />
+      <ProjectReference Include="..\TouristApp.Persistance\TouristApp.Persistance.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <_ContentIncludedByDefault Remove="Components\Layout\NavigationMenu\NavigationMenu.razor" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="wwwroot\generated\" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Include="wwwroot\generated\assets\SightsFullsize\bookmark_icon.svg" />
+      <None Include="wwwroot\generated\assets\SightsFullsize\gradient_background.png" />
+      <None Include="wwwroot\generated\assets\SightsFullsize\up_arrow.svg" />
+      <None Include="wwwroot\generated\assets\SightsFullsize\user_icon.svg" />
+      <None Include="wwwroot\generated\css\common.css" />
+      <None Include="wwwroot\generated\css\fonts.css" />
+      <None Include="wwwroot\generated\css\global.css" />
+      <None Include="wwwroot\generated\css\headroom.css" />
+      <None Include="wwwroot\generated\css\SightsFullsize.css" />
+      <None Include="wwwroot\generated\css\utils.css" />
+    </ItemGroup>
+
+</Project>

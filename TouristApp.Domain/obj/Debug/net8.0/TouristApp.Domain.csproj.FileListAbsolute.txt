@@ -14,7 +14,6 @@ D:\Works\RiderProjects\TestApp\TouristApp.Domain\obj\Debug\net8.0\TouristApp.Dom
 D:\Works\RiderProjects\TouristApp\TouristApp.Domain\bin\Debug\net8.0\TouristApp.Domain.deps.json
 D:\Works\RiderProjects\TouristApp\TouristApp.Domain\bin\Debug\net8.0\TouristApp.Domain.dll
 D:\Works\RiderProjects\TouristApp\TouristApp.Domain\bin\Debug\net8.0\TouristApp.Domain.pdb
-D:\Works\RiderProjects\TouristApp\TouristApp.Domain\obj\Debug\net8.0\TouristApp.Domain.csproj.AssemblyReference.cache
 D:\Works\RiderProjects\TouristApp\TouristApp.Domain\obj\Debug\net8.0\TouristApp.Domain.GeneratedMSBuildEditorConfig.editorconfig
 D:\Works\RiderProjects\TouristApp\TouristApp.Domain\obj\Debug\net8.0\TouristApp.Domain.AssemblyInfoInputs.cache
 D:\Works\RiderProjects\TouristApp\TouristApp.Domain\obj\Debug\net8.0\TouristApp.Domain.AssemblyInfo.cs
@@ -24,3 +23,4 @@ D:\Works\RiderProjects\TouristApp\TouristApp.Domain\obj\Debug\net8.0\TouristApp.
 D:\Works\RiderProjects\TouristApp\TouristApp.Domain\obj\Debug\net8.0\refint\TouristApp.Domain.dll
 D:\Works\RiderProjects\TouristApp\TouristApp.Domain\obj\Debug\net8.0\TouristApp.Domain.pdb
 D:\Works\RiderProjects\TouristApp\TouristApp.Domain\obj\Debug\net8.0\ref\TouristApp.Domain.dll
+D:\Works\RiderProjects\TouristApp\TouristApp.Domain\obj\Debug\net8.0\TouristApp.Domain.csproj.AssemblyReference.cache

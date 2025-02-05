@@ -1,0 +1,61 @@
+﻿@using AutoMapper
+@using MediatR
+@inject IMediator Mediator
+@inject IMapper Mapper
+@rendermode InteractiveServer
+
+<!DOCTYPE html>
+
+<html lang="">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title></title>
+</head>
+<body class="flex-column">
+@if (_isLoaded)
+{
+    <form>
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="categoryNameSpan">Название</span>
+            <input class="form-control" id="categoryName" placeholder="Название" type="text" @bind-value="@_category.Name" required autocomplete="off">
+        </div>
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="categoryDescriptionSpan">Описание</span>
+            <input class="form-control" id="categoryName" placeholder="Описание" type="text" @bind-value="@_category.Description" required autocomplete="off">
+        </div>
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="categoryIdSpan">Категории</span>
+            <select class="form-select" id="categoryIdSelector" @onclick="CategorySelected" @bind="@_category.Id" >
+                <option value="00000000-0000-0000-0000-000000000000" >Выберите категорию</option>
+                @foreach (var category in _categories!) 
+                { 
+                    <option value="@category.Id">@category.Name</option>
+                }
+            </select>
+        </div>
+        <div class="btn-group">
+            <button class="btn btn-primary" @onclick="CreateCategory">
+                Создать
+            </button>
+            @if (_isCategorySelected)
+            {
+                <button class="btn btn-primary" @onclick="DeleteCategory" formnovalidate>
+                    Удалить
+                </button>
+                <button class="btn btn-primary" @onclick="UpdateCategory">
+                    Изменить
+                </button>
+            }
+            <button class="btn btn-primary" type="button" @onclick="CheckCategory" formnovalidate>
+                Просмотреть
+            </button>
+        </div>
+    </form>
+}
+</body>    
+</html>
+
+@code {
+    
+}
