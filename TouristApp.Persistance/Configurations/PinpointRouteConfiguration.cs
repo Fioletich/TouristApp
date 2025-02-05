@@ -7,7 +7,6 @@ using TouristApp.Domain.Models.Route;
 namespace TouristApp.Persistance.Configurations;
 
 public class PinpointRouteConfiguration : IEntityTypeConfiguration<PinpointRoute>{
-
     public void Configure(EntityTypeBuilder<PinpointRoute> builder) {
         builder.HasOne<Route>()
             .WithMany()

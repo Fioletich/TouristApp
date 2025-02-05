@@ -15,16 +15,16 @@ namespace TouristApp.Web.Controllers;
 [Route("api/[controller]/[action]")]
 public class RouteController(IMediator mediator, IMapper mapper) : ControllerBase {
     [HttpGet]
-    public async Task<ActionResult<IEnumerable<RouteDTO>>> GetAll() {
+    public async Task<ActionResult<IEnumerable<RouteDto>>> GetAll() {
         var list = (await mediator.Send(new GetAllRoutesRequest()))
-            .Select(mapper.Map<RouteDTO>);
+            .Select(mapper.Map<RouteDto>);
         
         return Ok(list);
     }
 
     [HttpGet]
-    public async Task<ActionResult<RouteDTO>> Get([FromQuery] GetRouteRequest request) {
-        return Ok(mapper.Map<RouteDTO>(await mediator.Send(request)));
+    public async Task<ActionResult<RouteDto>> Get([FromQuery] GetRouteRequest request) {
+        return Ok(mapper.Map<RouteDto>(await mediator.Send(request)));
     }
 
     [HttpPost]

@@ -20,40 +20,40 @@ using TouristApp.Web.Utils;
 namespace TouristApp.Web.Components.Pages.Route;
 
 public partial class RoutesForm : ComponentBase {
-    private RouteDTO _route = new RouteDTO()
+    private RouteDto _route = new RouteDto()
     {
         Name = string.Empty,
         Description = string.Empty
     };
     
-    private RouteDTO  _selectedRoute = new RouteDTO()
+    private RouteDto  _selectedRoute = new RouteDto()
     {
         Name = string.Empty,
         Description = string.Empty
     };
     
-    private RouteDTO  _buildRroute = new RouteDTO()
+    private RouteDto  _buildRroute = new RouteDto()
     {
         Name = string.Empty,
         Description = string.Empty
     };
     
-    private IEnumerable<RouteDTO> _routes = [];
+    private IEnumerable<RouteDto> _routes = [];
 
     private Guid _pinpointIdForDeletion;
     private Guid _pinpointIdForAdd;
     private Guid _pinpointIdForAudio;
     
-    private PinpointDTO _selectedPinpoint = new PinpointDTO()
+    private PinpointDto _selectedPinpoint = new PinpointDto()
     {
         Name = string.Empty,
         Description = string.Empty
     };
     private string _firstPinpointToBuild = string.Empty;
-    private IEnumerable<PinpointDTO> _pinpoints = [];
-    private IEnumerable<PinpointDTO> _pinpointsOfSelected = [];
+    private IEnumerable<PinpointDto> _pinpoints = [];
+    private IEnumerable<PinpointDto> _pinpointsOfSelected = [];
 
-    private IEnumerable<PinpointRouteDTO> _pinpointRoutes = [];
+    private IEnumerable<PinpointRouteDto> _pinpointRoutes = [];
     
     private bool _isDataLoaded;
     private bool _isRouteSelected;
@@ -62,13 +62,13 @@ public partial class RoutesForm : ComponentBase {
 
     async protected override Task OnInitializedAsync() {
         _routes = (await Mediator.Send(new GetAllRoutesRequest()))
-            .Select(Mapper.Map<RouteDTO>);
+            .Select(Mapper.Map<RouteDto>);
         
         _pinpoints = (await Mediator.Send(new GetAllPinpointsRequest()))
-            .Select(Mapper.Map<PinpointDTO>);
+            .Select(Mapper.Map<PinpointDto>);
 
         _pinpointRoutes = (await Mediator.Send(new GetAllPinpointRoutesRequest()))
-            .Select(Mapper.Map<PinpointRouteDTO>);
+            .Select(Mapper.Map<PinpointRouteDto>);
         
         _isDataLoaded = true;
     }
@@ -158,7 +158,7 @@ public partial class RoutesForm : ComponentBase {
     private async Task CheckRoute() {
         if (_route.Id != Guid.Empty)
         {
-            var route = Mapper.Map<RouteDTO>(await Mediator.Send(new GetRouteRequest(_route.Id)));
+            var route = Mapper.Map<RouteDto>(await Mediator.Send(new GetRouteRequest(_route.Id)));
 
             if (route != null)
             {
@@ -183,13 +183,13 @@ public partial class RoutesForm : ComponentBase {
     }
     
     private async Task BuildRoute(Guid routeId , string? firstPinpoint = null) {
-        var route = Mapper.Map<RouteDTO>(await Mediator.Send(new GetRouteRequest(routeId)));
+        var route = Mapper.Map<RouteDto>(await Mediator.Send(new GetRouteRequest(routeId)));
 
         var touristRoutes = ((await Mediator.Send(new GetAllPinpointRoutesRequest()))
-            .Select(Mapper.Map<PinpointRouteDTO>)
+            .Select(Mapper.Map<PinpointRouteDto>)
             .Where(tr => tr.RouteId == route.Id));
 
-        var enumerable = touristRoutes as PinpointRouteDTO[] ?? touristRoutes.ToArray();
+        var enumerable = touristRoutes as PinpointRouteDto[] ?? touristRoutes.ToArray();
 
         if (enumerable.Count() < 2)
         {
@@ -216,7 +216,7 @@ public partial class RoutesForm : ComponentBase {
         
         foreach (var touristRoute in enumerable)
         {
-            var pinpoint = Mapper.Map<PinpointDTO>(await Mediator.Send(new GetPinpointRequest(touristRoute.PinpointId)));
+            var pinpoint = Mapper.Map<PinpointDto>(await Mediator.Send(new GetPinpointRequest(touristRoute.PinpointId)));
             
             var jsPinpoint = pinpoint.ConvertToJsPinpoint();
 
@@ -247,7 +247,7 @@ public partial class RoutesForm : ComponentBase {
 
         if (_route.Id != Guid.Empty)
         {
-            var route = Mapper.Map<RouteDTO>(await Mediator.Send(new GetRouteRequest(_route.Id)));
+            var route = Mapper.Map<RouteDto>(await Mediator.Send(new GetRouteRequest(_route.Id)));
 
             if (route != null)
             {

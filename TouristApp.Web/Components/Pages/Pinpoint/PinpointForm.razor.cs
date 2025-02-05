@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Components;
 using Microsoft.JSInterop;
 using TouristApp.Application.RequestAndHandler.Categories.Queries.GetAllCategories;
 using TouristApp.Application.RequestAndHandler.PinpointRoutes.Commands.DeletePinpointRoute;
+using TouristApp.Application.RequestAndHandler.PinpointRoutes.Queries.GetAllPinpointRoutes;
 using TouristApp.Application.RequestAndHandler.Pinpoints.Commands.DeletePinpoint;
 using TouristApp.Application.RequestAndHandler.Pinpoints.Commands.UpdatePinpoint;
 using TouristApp.Application.RequestAndHandler.Pinpoints.Queries.GetAllPinPoints;
@@ -16,7 +17,7 @@ using TouristApp.Web.Utils;
 namespace TouristApp.Web.Components.Pages.Pinpoint;
 
 public partial class PinpointForm : ComponentBase {
-    private PinpointDTO _pinpoint = new PinpointDTO()
+    private PinpointDto _pinpoint = new PinpointDto()
     {
         Name = string.Empty,
         Description = string.Empty
@@ -24,9 +25,9 @@ public partial class PinpointForm : ComponentBase {
 
     private string _coordinates = string.Empty;
 
-    private IEnumerable<CategoryDTO> _categoriesOfSelected = [];
-    private IEnumerable<CategoryDTO> _categories = [];
-    private CategoryDTO _category = new CategoryDTO()
+    private IEnumerable<CategoryDto> _categoriesOfSelected = [];
+    private IEnumerable<CategoryDto> _categories = [];
+    private CategoryDto _category = new CategoryDto()
     {
         Name = string.Empty,
         Description = string.Empty
@@ -35,9 +36,9 @@ public partial class PinpointForm : ComponentBase {
     private Guid _categoryIdForDeletion;
     private Guid _categoryIdForAdd;
 
-    private IEnumerable<PinpointDTO> _pinpoints = [];
+    private IEnumerable<PinpointDto> _pinpoints = [];
 
-    private IEnumerable<PinpointRouteDTO> _pinpointRoutes = [];
+    private IEnumerable<PinpointRouteDto> _pinpointRoutes = [];
 
     private bool _isPinpointSelected;
     private bool _isDataLoaded;
@@ -45,13 +46,13 @@ public partial class PinpointForm : ComponentBase {
 
     async protected override Task OnInitializedAsync() {
         _categories = (await Mediator.Send(new GetAllCategoriesRequest()))
-            .Select(Mapper.Map<CategoryDTO>);
+            .Select(Mapper.Map<CategoryDto>);
         
         _pinpoints = (await Mediator.Send(new GetAllPinpointsRequest()))
-            .Select(Mapper.Map<PinpointDTO>);
+            .Select(Mapper.Map<PinpointDto>);
         
-        _pinpointRoutes = (await Mediator.Send(new GetAllPinpointsRequest()))
-            .Select(Mapper.Map<PinpointRouteDTO>);
+        _pinpointRoutes = (await Mediator.Send(new GetAllPinpointRoutesRequest()))
+            .Select(Mapper.Map<PinpointRouteDto>);
 
         _isDataLoaded = true;
     }
@@ -86,11 +87,11 @@ public partial class PinpointForm : ComponentBase {
     private async Task PinpointSelected() {
         if (_pinpoint.Id != Guid.Empty)
         {
-            var idPinpoint = Mapper.Map<PinpointDTO>(await Mediator.Send(new GetPinpointRequest(_pinpoint.Id)));
+            var idPinpoint = Mapper.Map<PinpointDto>(await Mediator.Send(new GetPinpointRequest(_pinpoint.Id)));
 
             if (idPinpoint != null)
             {
-                var pinpoint = new PinpointDTO()
+                var pinpoint = new PinpointDto()
                 {
                     Name = idPinpoint.Name,
                     Description = idPinpoint.Description,
@@ -204,11 +205,11 @@ public partial class PinpointForm : ComponentBase {
         {
             var trsids = _pinpointRoutes
                 .Where(tr => tr.PinpointId == _pinpoint.Id)
-                .Select(tr => KeyValuePair.Create(tr.PinpointId, tr.RouteId));
-
+                .Select(tr => (tr.PinpointId, tr.RouteId));
+                
             foreach (var id in trsids)
             { 
-                await Mediator.Send(new DeletePinpointRouteRequest(id.Value, id.Key));
+                await Mediator.Send(new DeletePinpointRouteRequest(id.RouteId, id.PinpointId));
             }
             
             await Mediator.Send(new DeletePinpointRequest(_pinpoint.Id));

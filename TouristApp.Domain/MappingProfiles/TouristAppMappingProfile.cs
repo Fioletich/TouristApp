@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using TouristApp.Domain.Models.Category;
+using TouristApp.Domain.Models.FavouriteRoute;
 using TouristApp.Domain.Models.Pinpoint;
 using TouristApp.Domain.Models.PinpointRoute;
 using TouristApp.Domain.Models.Role;
@@ -10,11 +11,12 @@ namespace TouristApp.Domain.MappingProfiles;
 
 public class TouristAppMappingProfile : Profile {
     public TouristAppMappingProfile() {
-        CreateMap<Pinpoint, PinpointDTO>();
-        CreateMap<Role, RoleDTO>();
+        CreateMap<Pinpoint, PinpointDto>();
+        CreateMap<Role, RoleDto>();
         CreateMap<User, UserDTO>();
-        CreateMap<Route, RouteDTO>();
-        CreateMap<Category, CategoryDTO>();
-        CreateMap<PinpointRoute, PinpointRouteDTO>();
+        CreateMap<Route, RouteDto>();
+        CreateMap<Category, CategoryDto>();
+        CreateMap<PinpointRoute, PinpointRouteDto>();
+        CreateMap<FavouriteRoute, FavouriteRouteDto>();
     }
 }

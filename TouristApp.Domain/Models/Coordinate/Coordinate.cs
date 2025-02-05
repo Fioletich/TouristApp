@@ -1,4 +1,4 @@
-﻿namespace TouristApp.Blazor.Models;
+﻿namespace TouristApp.Domain.Models.Coordinate;
 
 public struct Coordinate
 {

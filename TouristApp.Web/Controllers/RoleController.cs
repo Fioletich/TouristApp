@@ -14,16 +14,16 @@ namespace TouristApp.Web.Controllers;
 [Route("api/[controller]/[action]")]
 public class RoleController(IMediator mediator, IMapper mapper) : ControllerBase {
     [HttpGet]
-    public async Task<ActionResult<IEnumerable<RoleDTO>>> GetAll() {
+    public async Task<ActionResult<IEnumerable<RoleDto>>> GetAll() {
         var roles = (await mediator.Send(new GetAllRolesRequest()))
-            .Select(mapper.Map<RoleDTO>);
+            .Select(mapper.Map<RoleDto>);
         
         return Ok(roles);
     }
     
     [HttpGet]
-    public async Task<ActionResult<RoleDTO>> Get([FromQuery] Guid id) {
-        return Ok(mapper.Map<RoleDTO>(await mediator.Send(new GetRoleRequest(id))));
+    public async Task<ActionResult<RoleDto>> Get([FromQuery] Guid id) {
+        return Ok(mapper.Map<RoleDto>(await mediator.Send(new GetRoleRequest(id))));
     }
     
     [HttpDelete]

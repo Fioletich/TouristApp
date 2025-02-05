@@ -5,7 +5,6 @@ namespace TouristApp.Domain.Models.PinpointRoute;
 public class PinpointRoute : AuditableEntity {
     public Guid PinpointId { get; private set; }
     public Guid RouteId { get; private set; }
-    
 
     private PinpointRoute() { }
 

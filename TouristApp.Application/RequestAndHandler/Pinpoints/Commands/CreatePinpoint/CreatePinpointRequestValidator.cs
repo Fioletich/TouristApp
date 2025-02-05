@@ -9,9 +9,6 @@ public class CreatePinpointRequestValidator : AbstractValidator<CreatePinpointRe
             .NotEqual(string.Empty)
             .MaximumLength(255);
 
-        RuleFor(request => request.UserId)
-            .NotEqual(Guid.Empty);
-
         RuleFor(request => request.Description)
             .NotNull()
             .NotEqual(string.Empty)

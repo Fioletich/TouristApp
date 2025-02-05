@@ -9,18 +9,18 @@ using TouristApp.Domain.Models.Category;
 namespace TouristApp.Web.Components.Pages.Category;
 
 public partial class CategoriesForm : ComponentBase {
-    private CategoryDTO _category = new CategoryDTO
+    private CategoryDto _category = new CategoryDto
     {
         Description = string.Empty,
         Name = string.Empty
     };
-    private IEnumerable<CategoryDTO> _categories = null!;
+    private IEnumerable<CategoryDto> _categories = null!;
     private bool _isLoaded;
     private bool _isCategorySelected;
 
     async protected override Task OnInitializedAsync() {
         _categories = (await Mediator.Send(new GetAllCategoriesRequest()))
-            .Select(c => Mapper.Map<CategoryDTO>(c));
+            .Select(c => Mapper.Map<CategoryDto>(c));
         
         _isLoaded = true;
     }

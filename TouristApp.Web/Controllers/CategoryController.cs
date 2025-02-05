@@ -14,16 +14,16 @@ namespace TouristApp.Web.Controllers;
 [Route("api/[controller]/[action]")]
 public class CategoryController(IMediator mediator, IMapper mapper) : ControllerBase {
     [HttpGet]
-    public async Task<ActionResult<IEnumerable<CategoryDTO>>> GetAll() {
+    public async Task<ActionResult<IEnumerable<CategoryDto>>> GetAll() {
         var categories = (await mediator.Send(new GetAllCategoriesRequest()))
-            .Select(mapper.Map<CategoryDTO>);
+            .Select(mapper.Map<CategoryDto>);
         
         return Ok(categories);
     }
 
     [HttpGet]
-    public async Task<ActionResult<CategoryDTO>> Get([FromQuery] GetCategoryRequest request) {
-        return Ok(mapper.Map<CategoryDTO>(await mediator.Send(request)));
+    public async Task<ActionResult<CategoryDto>> Get([FromQuery] GetCategoryRequest request) {
+        return Ok(mapper.Map<CategoryDto>(await mediator.Send(request)));
     }
 
     [HttpPost]

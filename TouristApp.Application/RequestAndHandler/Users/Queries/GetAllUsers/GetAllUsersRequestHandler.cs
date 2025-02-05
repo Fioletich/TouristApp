@@ -10,6 +10,8 @@ public class GetAllUsersRequestHandler(ITouristApplicationDbContext context)
     : IRequestHandler<GetAllUsersRequest, IEnumerable<User>> {
 
     public async Task<IEnumerable<User>> Handle(GetAllUsersRequest request, CancellationToken cancellationToken) {
-        return await context.Users.ToListAsync(cancellationToken);
+        return await context.Users
+            .Include(u => u.Role)
+            .ToListAsync(cancellationToken);
     }
 }

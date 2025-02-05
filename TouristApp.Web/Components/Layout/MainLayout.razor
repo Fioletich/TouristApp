@@ -1,4 +1,7 @@
-﻿@inherits LayoutComponentBase
+﻿@using Microsoft.AspNetCore.Components.Authorization
+@inherits LayoutComponentBase
+@inject NavigationManager NavManager
+@rendermode @(new InteractiveServerRenderMode(prerender: false))
 
 <div class="page">
     <div class="sidebar">
@@ -7,7 +10,15 @@
 
     <main>
         <div class="top-row px-4">
-            <a href="https://learn.microsoft.com/aspnet/core/" target="_blank">About</a>
+            <CascadingAuthenticationState>
+                <AuthorizeView>
+                    <Authorized>
+                        <a href=@($"{NavManager.BaseUri}Logout")>Выйти</a>
+                    </Authorized>
+                    <NotAuthorized>
+                    </NotAuthorized>
+                </AuthorizeView>
+            </CascadingAuthenticationState>
         </div>
 
         <article class="content px-4">

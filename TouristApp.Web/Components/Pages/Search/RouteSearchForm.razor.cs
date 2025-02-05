@@ -6,8 +6,8 @@ using TouristApp.Application.RequestAndHandler.PinpointRoutes.Queries.GetAllPinp
 using TouristApp.Application.RequestAndHandler.Pinpoints.Queries.GetPinPoint;
 using TouristApp.Application.RequestAndHandler.Routes.Queries.GetAllRoutes;
 using TouristApp.Application.RequestAndHandler.Routes.Queries.GetRoute;
-using TouristApp.Blazor.Models;
 using TouristApp.Domain.Models.Category;
+using TouristApp.Domain.Models.Coordinate;
 using TouristApp.Domain.Models.Pinpoint;
 using TouristApp.Domain.Models.PinpointRoute;
 using TouristApp.Domain.Models.Route;
@@ -18,22 +18,22 @@ namespace TouristApp.Web.Components.Pages.Search;
 public partial class RouteSearchForm {
     private string _firstPinpointToBuild = string.Empty;
     
-    private RouteDTO _searchedRoute = new RouteDTO()
+    private RouteDto _searchedRoute = new RouteDto()
     {
         Id = Guid.Empty,
         Name = string.Empty,
         Description = string.Empty
     };
 
-    private IEnumerable<CategoryDTO> _categories = [];
-    private CategoryDTO _searchedCategory = new CategoryDTO()
+    private IEnumerable<CategoryDto> _categories = [];
+    private CategoryDto _searchedCategory = new CategoryDto()
     {
         Id = Guid.Empty,
         Name = string.Empty,
         Description = string.Empty
     };
 
-    private IEnumerable<RouteDTO> _suggestedRoutes = [];
+    private IEnumerable<RouteDto> _suggestedRoutes = [];
     
     private bool _isDataLoaded;
     private bool _isDisposed;
@@ -43,10 +43,10 @@ public partial class RouteSearchForm {
 
     async protected override Task OnInitializedAsync() {
         _categories = (await Mediator.Send(new GetAllCategoriesRequest()))
-            .Select(Mapper.Map<CategoryDTO>);
+            .Select(Mapper.Map<CategoryDto>);
 
         _suggestedRoutes = (await Mediator.Send(new GetAllRoutesRequest()))
-            .Select(Mapper.Map<RouteDTO>);
+            .Select(Mapper.Map<RouteDto>);
 
         _isDataLoaded = true;
     }
@@ -96,14 +96,14 @@ public partial class RouteSearchForm {
     }
     
     private async Task BuildRoute(Guid routeId , string? firstPinpoint = null) {
-        var route = Mapper.Map<RouteDTO>(await Mediator.Send(new GetRouteRequest(routeId)));
+        var route = Mapper.Map<RouteDto>(await Mediator.Send(new GetRouteRequest(routeId)));
 
         var pinpointRoutes = (await Mediator.Send(new GetAllPinpointRoutesRequest()))
-            .Select(Mapper.Map<PinpointRouteDTO>)
+            .Select(Mapper.Map<PinpointRouteDto>)
             .Where(tr => tr.RouteId == route.Id);
 
         
-        var enumerable = pinpointRoutes as PinpointRouteDTO[] ?? pinpointRoutes.ToArray();
+        var enumerable = pinpointRoutes as PinpointRouteDto[] ?? pinpointRoutes.ToArray();
 
         if (enumerable.Count() < 2)
         {
@@ -146,7 +146,7 @@ public partial class RouteSearchForm {
                     
                 foreach (var pinpointRoute in enumerable)
                 {
-                    var pinpoint = Mapper.Map<PinpointDTO>
+                    var pinpoint = Mapper.Map<PinpointDto>
                         (await Mediator.Send(new GetPinpointRequest(pinpointRoute.PinpointId)));
 
                     if (pinpoint != null)
@@ -176,7 +176,7 @@ public partial class RouteSearchForm {
         
         foreach (var touristRoute in enumerable)
         {
-            var pinpoint = Mapper.Map<PinpointDTO>(await Mediator.Send(new GetPinpointRequest(touristRoute.PinpointId)));
+            var pinpoint = Mapper.Map<PinpointDto>(await Mediator.Send(new GetPinpointRequest(touristRoute.PinpointId)));
 
             if (pinpoint != null)
             {

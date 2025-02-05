@@ -21,6 +21,122 @@
       "PackagePath": "staticwebassets\\favicon.png"
     },
     {
+      "Id": "D:\\Works\\RiderProjects\\TouristApp\\TouristApp.Web\\wwwroot\\generated\\assets\\AutorizationFullsize\\user_icon.svg",
+      "PackagePath": "staticwebassets\\generated\\assets\\AutorizationFullsize\\user_icon.svg"
+    },
+    {
+      "Id": "D:\\Works\\RiderProjects\\TouristApp\\TouristApp.Web\\wwwroot\\generated\\assets\\MyRoadsFullsize\\01103670073fc6f92eeeb4a64ad67aab.svg",
+      "PackagePath": "staticwebassets\\generated\\assets\\MyRoadsFullsize\\01103670073fc6f92eeeb4a64ad67aab.svg"
+    },
+    {
+      "Id": "D:\\Works\\RiderProjects\\TouristApp\\TouristApp.Web\\wwwroot\\generated\\assets\\MyRoadsFullsize\\bookmark_icon.svg",
+      "PackagePath": "staticwebassets\\generated\\assets\\MyRoadsFullsize\\bookmark_icon.svg"
+    },
+    {
+      "Id": "D:\\Works\\RiderProjects\\TouristApp\\TouristApp.Web\\wwwroot\\generated\\assets\\MyRoadsFullsize\\d7d141d69b8eb869ad1a7a46fd024a3f.svg",
+      "PackagePath": "staticwebassets\\generated\\assets\\MyRoadsFullsize\\d7d141d69b8eb869ad1a7a46fd024a3f.svg"
+    },
+    {
+      "Id": "D:\\Works\\RiderProjects\\TouristApp\\TouristApp.Web\\wwwroot\\generated\\assets\\MyRoadsFullsize\\down_arrow.svg",
+      "PackagePath": "staticwebassets\\generated\\assets\\MyRoadsFullsize\\down_arrow.svg"
+    },
+    {
+      "Id": "D:\\Works\\RiderProjects\\TouristApp\\TouristApp.Web\\wwwroot\\generated\\assets\\MyRoadsFullsize\\gradient_background.png",
+      "PackagePath": "staticwebassets\\generated\\assets\\MyRoadsFullsize\\gradient_background.png"
+    },
+    {
+      "Id": "D:\\Works\\RiderProjects\\TouristApp\\TouristApp.Web\\wwwroot\\generated\\assets\\MyRoadsFullsize\\up_arrow.svg",
+      "PackagePath": "staticwebassets\\generated\\assets\\MyRoadsFullsize\\up_arrow.svg"
+    },
+    {
+      "Id": "D:\\Works\\RiderProjects\\TouristApp\\TouristApp.Web\\wwwroot\\generated\\assets\\MyRoadsFullsize\\user_icon.svg",
+      "PackagePath": "staticwebassets\\generated\\assets\\MyRoadsFullsize\\user_icon.svg"
+    },
+    {
+      "Id": "D:\\Works\\RiderProjects\\TouristApp\\TouristApp.Web\\wwwroot\\generated\\assets\\RoadsEditingMenu\\0ef817eac638bd4da720d3cc99edb36a.png",
+      "PackagePath": "staticwebassets\\generated\\assets\\RoadsEditingMenu\\0ef817eac638bd4da720d3cc99edb36a.png"
+    },
+    {
+      "Id": "D:\\Works\\RiderProjects\\TouristApp\\TouristApp.Web\\wwwroot\\generated\\assets\\RoadsEditingMenu\\ae63d5bb5e21846496aa6e862551f3e1.svg",
+      "PackagePath": "staticwebassets\\generated\\assets\\RoadsEditingMenu\\ae63d5bb5e21846496aa6e862551f3e1.svg"
+    },
+    {
+      "Id": "D:\\Works\\RiderProjects\\TouristApp\\TouristApp.Web\\wwwroot\\generated\\assets\\RoadsFullsize\\bookmark_icon.svg",
+      "PackagePath": "staticwebassets\\generated\\assets\\RoadsFullsize\\bookmark_icon.svg"
+    },
+    {
+      "Id": "D:\\Works\\RiderProjects\\TouristApp\\TouristApp.Web\\wwwroot\\generated\\assets\\RoadsFullsize\\down_arrow.svg",
+      "PackagePath": "staticwebassets\\generated\\assets\\RoadsFullsize\\down_arrow.svg"
+    },
+    {
+      "Id": "D:\\Works\\RiderProjects\\TouristApp\\TouristApp.Web\\wwwroot\\generated\\assets\\RoadsFullsize\\gradient_background.png",
+      "PackagePath": "staticwebassets\\generated\\assets\\RoadsFullsize\\gradient_background.png"
+    },
+    {
+      "Id": "D:\\Works\\RiderProjects\\TouristApp\\TouristApp.Web\\wwwroot\\generated\\assets\\RoadsFullsize\\up_arrow.svg",
+      "PackagePath": "staticwebassets\\generated\\assets\\RoadsFullsize\\up_arrow.svg"
+    },
+    {
+      "Id": "D:\\Works\\RiderProjects\\TouristApp\\TouristApp.Web\\wwwroot\\generated\\assets\\RoadsFullsize\\user_icon.svg",
+      "PackagePath": "staticwebassets\\generated\\assets\\RoadsFullsize\\user_icon.svg"
+    },
+    {
+      "Id": "D:\\Works\\RiderProjects\\TouristApp\\TouristApp.Web\\wwwroot\\generated\\assets\\SightsFullsize\\bookmark_icon.svg",
+      "PackagePath": "staticwebassets\\generated\\assets\\SightsFullsize\\bookmark_icon.svg"
+    },
+    {
+      "Id": "D:\\Works\\RiderProjects\\TouristApp\\TouristApp.Web\\wwwroot\\generated\\assets\\SightsFullsize\\gradient_background.png",
+      "PackagePath": "staticwebassets\\generated\\assets\\SightsFullsize\\gradient_background.png"
+    },
+    {
+      "Id": "D:\\Works\\RiderProjects\\TouristApp\\TouristApp.Web\\wwwroot\\generated\\assets\\SightsFullsize\\up_arrow.svg",
+      "PackagePath": "staticwebassets\\generated\\assets\\SightsFullsize\\up_arrow.svg"
+    },
+    {
+      "Id": "D:\\Works\\RiderProjects\\TouristApp\\TouristApp.Web\\wwwroot\\generated\\assets\\SightsFullsize\\user_icon.svg",
+      "PackagePath": "staticwebassets\\generated\\assets\\SightsFullsize\\user_icon.svg"
+    },
+    {
+      "Id": "D:\\Works\\RiderProjects\\TouristApp\\TouristApp.Web\\wwwroot\\generated\\css\\AutorizationFullsize.css",
+      "PackagePath": "staticwebassets\\generated\\css\\AutorizationFullsize.css"
+    },
+    {
+      "Id": "D:\\Works\\RiderProjects\\TouristApp\\TouristApp.Web\\wwwroot\\generated\\css\\MyRoadsFullsize.css",
+      "PackagePath": "staticwebassets\\generated\\css\\MyRoadsFullsize.css"
+    },
+    {
+      "Id": "D:\\Works\\RiderProjects\\TouristApp\\TouristApp.Web\\wwwroot\\generated\\css\\RoadsEditingMenu.css",
+      "PackagePath": "staticwebassets\\generated\\css\\RoadsEditingMenu.css"
+    },
+    {
+      "Id": "D:\\Works\\RiderProjects\\TouristApp\\TouristApp.Web\\wwwroot\\generated\\css\\RoadsFullsize.css",
+      "PackagePath": "staticwebassets\\generated\\css\\RoadsFullsize.css"
+    },
+    {
+      "Id": "D:\\Works\\RiderProjects\\TouristApp\\TouristApp.Web\\wwwroot\\generated\\css\\SightsFullsize.css",
+      "PackagePath": "staticwebassets\\generated\\css\\SightsFullsize.css"
+    },
+    {
+      "Id": "D:\\Works\\RiderProjects\\TouristApp\\TouristApp.Web\\wwwroot\\generated\\css\\common.css",
+      "PackagePath": "staticwebassets\\generated\\css\\common.css"
+    },
+    {
+      "Id": "D:\\Works\\RiderProjects\\TouristApp\\TouristApp.Web\\wwwroot\\generated\\css\\fonts.css",
+      "PackagePath": "staticwebassets\\generated\\css\\fonts.css"
+    },
+    {
+      "Id": "D:\\Works\\RiderProjects\\TouristApp\\TouristApp.Web\\wwwroot\\generated\\css\\global.css",
+      "PackagePath": "staticwebassets\\generated\\css\\global.css"
+    },
+    {
+      "Id": "D:\\Works\\RiderProjects\\TouristApp\\TouristApp.Web\\wwwroot\\generated\\css\\headroom.css",
+      "PackagePath": "staticwebassets\\generated\\css\\headroom.css"
+    },
+    {
+      "Id": "D:\\Works\\RiderProjects\\TouristApp\\TouristApp.Web\\wwwroot\\generated\\css\\utils.css",
+      "PackagePath": "staticwebassets\\generated\\css\\utils.css"
+    },
+    {
       "Id": "D:\\Works\\RiderProjects\\TouristApp\\TouristApp.Web\\wwwroot\\js\\geoLocationJsInterop.js",
       "PackagePath": "staticwebassets\\js\\geoLocationJsInterop.js"
     },

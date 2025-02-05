@@ -11,14 +11,7 @@ public class CreatePinpointRequestHandler(ITouristApplicationDbContext context, 
     : IRequestHandler<CreatePinpointRequest, Guid> {
 
     public async Task<Guid> Handle(CreatePinpointRequest request, CancellationToken cancellationToken) {
-        var user = await mediator.Send(new GetUserRequest(request.UserId), cancellationToken);
-
-        if (user is null || user.Id != request.UserId)
-        {
-            throw new NotFoundException(typeof(User).ToString(), request.UserId);
-        }
-        
-        var pinpoint = Pinpoint.Create(user, request.Name, request.Description, request.AudioUrl,
+        var pinpoint = Pinpoint.Create(request.Name, request.Description, request.AudioUrl,
             request.XCoordinate, request.YCoordinate);
 
         await context.Pinpoints.AddAsync(pinpoint, cancellationToken);

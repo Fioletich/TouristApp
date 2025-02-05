@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using TouristApp.Application.Interfaces;
 using TouristApp.Domain.Models.Category;
+using TouristApp.Domain.Models.FavouriteRoute;
 using TouristApp.Domain.Models.Pinpoint;
 using TouristApp.Domain.Models.PinpointRoute;
 using TouristApp.Domain.Models.Role;
@@ -17,6 +18,7 @@ public class TouristApplicationDbContext : DbContext, ITouristApplicationDbConte
     public DbSet<Category> Categories { get; set; }
     public DbSet<Role> Roles { get; set; }
     public DbSet<PinpointRoute> PinpointRoutes { get; set; }
+    public DbSet<FavouriteRoute> FavouriteRoutes { get; set; }
 
     public TouristApplicationDbContext() { }
 

@@ -7,7 +7,6 @@ public class User : AuditableEntity {
     public Guid RoleId { get; private set; }
     public Role.Role Role { get; set; }
     public List<Route.Route> Routes { get; private set; } = [];
-    public List<Pinpoint.Pinpoint> Pinpoints { get; private set; } = [];
     public string Login { get; set; }
     public string Password { get; set; }
     public string? City { get; set; }

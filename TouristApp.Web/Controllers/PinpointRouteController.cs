@@ -28,13 +28,13 @@ public class PinpointRouteController(IMediator mediator, IMapper mapper) : Contr
     }
 
     [HttpGet]
-    public async Task<ActionResult<PinpointRouteDTO>> Get(GetPinpointRouteRequest request) {
-        return mapper.Map<PinpointRouteDTO>(await mediator.Send(request));
+    public async Task<ActionResult<PinpointRouteDto>> Get(GetPinpointRouteRequest request) {
+        return mapper.Map<PinpointRouteDto>(await mediator.Send(request));
     }
 
     [HttpGet]
-    public async Task<ActionResult<IEnumerable<PinpointRouteDTO>>> GetAll() {
+    public async Task<ActionResult<IEnumerable<PinpointRouteDto>>> GetAll() {
         return Ok((await mediator.Send(new GetAllPinpointRoutesRequest()))
-            .Select(mapper.Map<PinpointRouteDTO>));
+            .Select(mapper.Map<PinpointRouteDto>));
     }
 }

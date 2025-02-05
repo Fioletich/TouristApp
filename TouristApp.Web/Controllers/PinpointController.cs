@@ -15,16 +15,16 @@ namespace TouristApp.Web.Controllers;
 [Route("api/[controller]/[action]")]
 public class PinpointController(IMediator mediator, IMapper mapper) : ControllerBase {
     [HttpGet]
-    public async Task<ActionResult<IEnumerable<PinpointDTO>>> GetAll() {
+    public async Task<ActionResult<IEnumerable<PinpointDto>>> GetAll() {
         var pinpoints = (await mediator.Send(new GetAllPinpointsRequest()))
-            .Select(mapper.Map<PinpointDTO>);
+            .Select(mapper.Map<PinpointDto>);
         
         return Ok(pinpoints);
     }
 
     [HttpGet]
-    public async Task<ActionResult<PinpointDTO>> Get([FromQuery] GetPinpointRequest request) {
-        return Ok(mapper.Map<PinpointDTO>(await mediator.Send(request)));
+    public async Task<ActionResult<PinpointDto>> Get([FromQuery] GetPinpointRequest request) {
+        return Ok(mapper.Map<PinpointDto>(await mediator.Send(request)));
     }
 
     [HttpPost]

@@ -1,5 +1,5 @@
 ﻿using TouristApp.Blazor.Exceptions;
-using TouristApp.Blazor.Models;
+using TouristApp.Domain.Models.Coordinate;
 
 namespace TouristApp.Web.Services.GeoLocationBroker;
 

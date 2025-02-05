@@ -28,10 +28,6 @@ public class PinpointConfiguration : IEntityTypeConfiguration<Pinpoint> {
                         .HasForeignKey(pr => pr.PinpointId)
                         .OnDelete(DeleteBehavior.NoAction);
                 });
-
-        builder.HasOne(p => p.User)
-            .WithMany(u => u.Pinpoints)
-            .HasForeignKey(p => p.UserId);
         
         builder.Property(p => p.Name)
             .HasMaxLength(255)

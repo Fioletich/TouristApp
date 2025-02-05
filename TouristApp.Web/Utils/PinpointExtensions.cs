@@ -4,7 +4,7 @@ using TouristApp.Domain.Models.Pinpoint;
 namespace TouristApp.Web.Utils;
 
 public static class PinpointExtensions {
-    public static JsPinpoint ConvertToJsPinpoint(this PinpointDTO pinpoint) {
+    public static JsPinpoint ConvertToJsPinpoint(this PinpointDto pinpoint) {
         var jsPinpoint = new JsPinpoint()
         {
             Coords = new[] { Convert.ToDecimal(pinpoint.XCoordinate, CultureInfo.InvariantCulture), Convert.ToDecimal(pinpoint.YCoordinate, CultureInfo.InvariantCulture) },
