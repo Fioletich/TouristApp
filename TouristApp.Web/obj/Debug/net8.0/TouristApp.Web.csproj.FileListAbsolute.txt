@@ -199,3 +199,11 @@ D:\Works\RiderProjects\TouristApp\TouristApp.Web\bin\Debug\net8.0\ru\Microsoft.C
 D:\Works\RiderProjects\TouristApp\TouristApp.Web\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
 D:\Works\RiderProjects\TouristApp\TouristApp.Web\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
 D:\Works\RiderProjects\TouristApp\TouristApp.Web\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+D:\Works\RiderProjects\TouristApp\TouristApp.Web\bin\Debug\net8.0\BlazorBootstrap.dll
+D:\Works\RiderProjects\TouristApp\TouristApp.Web\bin\Debug\net8.0\Microsoft.AspNetCore.Components.dll
+D:\Works\RiderProjects\TouristApp\TouristApp.Web\bin\Debug\net8.0\Microsoft.AspNetCore.Components.Forms.dll
+D:\Works\RiderProjects\TouristApp\TouristApp.Web\bin\Debug\net8.0\Microsoft.AspNetCore.Components.Web.dll
+D:\Works\RiderProjects\TouristApp\TouristApp.Web\bin\Debug\net8.0\Microsoft.JSInterop.dll
+D:\Works\RiderProjects\TouristApp\TouristApp.Web\obj\Debug\net8.0\scopedcss\Components\Pages\Routes\RoutesPage.razor.rz.scp.css
+D:\Works\RiderProjects\TouristApp\TouristApp.Web\obj\Debug\net8.0\scopedcss\Components\Pages\Routes\RoutesComponents\Route.razor.rz.scp.css
+D:\Works\RiderProjects\TouristApp\TouristApp.Web\obj\Debug\net8.0\scopedcss\Components\Pages\Pinpoints\PinpointsComponents\Pinpoint.razor.rz.scp.css

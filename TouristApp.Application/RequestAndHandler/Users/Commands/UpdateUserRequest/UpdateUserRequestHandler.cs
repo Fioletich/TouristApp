@@ -14,7 +14,7 @@ public class UpdateUserRequestHandler(ITouristApplicationDbContext context)
         var user = await context.Users
             .FirstOrDefaultAsync(u => u.Id == request.UserId, cancellationToken);
 
-        if (user is null || user.Id == request.UserId)
+        if (user is null || user.Id != request.UserId)
         {
             throw new NotFoundException(nameof(User), request.UserId);
         }

@@ -1,0 +1,9 @@
+﻿@inject NavigationManager NavManager
+
+<p style="font-size: 30px; font-weight: bold; font-family: 'Montserrat', sans-serif;">
+    Вы не авторизованны перейдите по этой ссылке на форму авторизации
+    <a href="@($"{NavManager.BaseUri}AuthPage")">Войти</a>
+</p>
+@code {
+    
+}

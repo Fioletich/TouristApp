@@ -1,0 +1,73 @@
+﻿@using AutoMapper
+@using MediatR
+@inject IMediator Mediator;
+@inject IMapper Mapper
+
+<Modal @ref="_pinpointDescriptionModal" Title="Описание маршрута" ModalType="ModalType.Info">
+    <FooterTemplate>
+        <Button Color="ButtonColor.Secondary" @onclick="_pinpointDescriptionModal.HideAsync">Закрыть</Button>
+    </FooterTemplate>
+</Modal>
+
+<Modal @ref="_pinpointRoutesModal" Title="Список маршрутов достопримечательностей" ModalType="ModalType.Info">
+    <BodyTemplate>
+        @_pinpointRoutesModal.Message
+    </BodyTemplate>
+    <FooterTemplate>
+        <Button Color="ButtonColor.Secondary" @onclick="_pinpointRoutesModal.HideAsync">Закрыть</Button>
+    </FooterTemplate>
+</Modal>
+
+<div class="container">
+    <div class="row" style="margin-bottom: 1%">
+        <div class="col-7">
+            <p style="margin-bottom: 1%" class="pinpointsTitle">Достопримечательности</p>
+        </div>
+        <div class="col">
+            <div class="d-grid align-items-end">
+
+            </div>
+        </div>
+    </div>
+    <div class="row" style="margin-bottom: 3%">
+        <div class="col-6">
+            <span class="input-group">
+                <TextInput @bind-Value="_pinpointName" Placeholder="Введите запрос"/>
+                <Button Color="ButtonColor.Secondary">
+                    <Icon Name="IconName.Search"/>
+                </Button>
+            </span>
+        </div>
+        <div class="col">
+            <div class="d-grid">
+                <InputSelect TValue="Guid" class="form-select" @bind-Value="_categoryIdForSearch">
+                    <option value="@(Guid.Empty)">Введите категорию поиска</option>
+                </InputSelect>
+            </div>
+        </div>
+        <div class="col">
+            <Switch @bind-Value="_isOnlyFavouritePinpoints"
+                    Label="Показывать только избранное"
+                    @onclick="OnSwitchClick"/>
+        </div>
+    </div>
+    <div class="row row-cols-2">
+        @foreach (var pinpoint in Pinpoints)
+        {
+            <PinpointCard Pinpoint="pinpoint"
+                          OnPinpointDescription="async () => await OnPinpointDescriptionModalClicked(pinpoint)"
+                          OnPinpointRoutes="async () => await OnPinpointRoutesModalClicked(pinpoint)"
+                          UserId="UserId"
+                          OnDeleteFavouritePinpointEventCallback="OnFavouritePinpointDeleteEventCallback"
+                          OnAddFavouritePinpointEventCallback="OnFavouritePinpointAddEventCallback"
+                          FavouritePinpoints="FavouritePinpoints">
+            </PinpointCard>
+        }
+    </div>
+</div>
+
+@code {
+
+    
+
+}

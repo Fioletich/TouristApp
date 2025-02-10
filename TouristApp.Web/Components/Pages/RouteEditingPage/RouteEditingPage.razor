@@ -1,22 +1,18 @@
 ﻿@page "/RouteEditingPage"
+@using Microsoft.AspNetCore.Authorization
 
 <head>
-
     <meta charset="utf-8" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-
-
     <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous" />
-    <link rel="stylesheet" type="text/css" href="generated/css/common.css" />
-    <link rel="stylesheet" type="text/css" href="generated/css/fonts.css" />
-    <link rel="stylesheet" type="text/css" href="generated/css/RoadsEditingMenu.css" />
 </head>
 
 <body class="flex-column">
 
 <div class="roads-editing-menu containerWrapper">
     <div class="mainColumn">
+        
         <div class="imageColumnWrapper">
             <figure class="imageBlock" style="--src:url(generated/assets/RoadsEditingMenu/0ef817eac638bd4da720d3cc99edb36a.png)">
                 <figcaption class="imageInfo">img</figcaption>
@@ -33,12 +29,10 @@
         <div class="buttonTextColumnWrapper">
             <section class="actionSection">
                 <button class="selectPointsBtn">
-                    <!-- TODO -->
                     <span class="selectPointsText">Выберите набор точек</span>
-                    <img class="actionButtonIcon" src="generated/assets/RoadsEditingMenu/ae63d5bb5e21846496aa6e862551f3e1.svg" alt="alt text" />
+                    <img class="actionButtonIcon" src="generated/assets/RoadsEditingMenu/ae63d5bb5e21846496aa6e862551f3e1.svg" alt="alt text"/>
                 </button>
                 <p class="saveText">
-                    <!-- TODO -->
                     Сохранить
                 </p>
             </section>
@@ -53,7 +47,6 @@
                 <div class="pointColorThree"></div>
                 <p class="pointLabelFour">Точка 4</p>
             </section>
-
         </div>
     </div>
 </div>

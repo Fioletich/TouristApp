@@ -1,0 +1,20 @@
+﻿@using TouristApp.Domain.Models.Route
+
+<Grid TItem="RouteDto" EmptyText="Данная достопримечательность не является частью какого-либо маршрута"
+      Class="table table-hover table-bordered table-striped"
+      DataProvider="RoutesDataProvider">
+    <GridColumns>
+        <GridColumn TItem="RouteDto" HeaderText="Название">
+            @context.Name
+        </GridColumn>
+        <GridColumn TItem="RouteDto" HeaderText="Описание">
+            @context.Description
+        </GridColumn>
+    </GridColumns>
+</Grid>
+
+@code {
+
+    
+
+}

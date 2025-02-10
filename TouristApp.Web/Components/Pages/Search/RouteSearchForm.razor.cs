@@ -1,7 +1,7 @@
 ﻿using System.Globalization;
 using System.Text.Json;
 using Microsoft.JSInterop;
-using TouristApp.Application.RequestAndHandler.Categories.Queries.GetAllCategories;
+using TouristApp.Application.RequestAndHandler.CategoriesOfPinpoints.Queries.GetAllCategories;
 using TouristApp.Application.RequestAndHandler.PinpointRoutes.Queries.GetAllPinpointRoutes;
 using TouristApp.Application.RequestAndHandler.Pinpoints.Queries.GetPinPoint;
 using TouristApp.Application.RequestAndHandler.Routes.Queries.GetAllRoutes;
@@ -25,8 +25,8 @@ public partial class RouteSearchForm {
         Description = string.Empty
     };
 
-    private IEnumerable<CategoryDto> _categories = [];
-    private CategoryDto _searchedCategory = new CategoryDto()
+    private IEnumerable<CategoryOfPinpointDto> _categories = [];
+    private CategoryOfPinpointDto _searchedCategoryOfPinpoint = new CategoryOfPinpointDto()
     {
         Id = Guid.Empty,
         Name = string.Empty,
@@ -42,8 +42,8 @@ public partial class RouteSearchForm {
     private Coordinate _geoCoordinates;
 
     async protected override Task OnInitializedAsync() {
-        _categories = (await Mediator.Send(new GetAllCategoriesRequest()))
-            .Select(Mapper.Map<CategoryDto>);
+        _categories = (await Mediator.Send(new GetAllCategoriesOfPinpointRequest()))
+            .Select(Mapper.Map<CategoryOfPinpointDto>);
 
         _suggestedRoutes = (await Mediator.Send(new GetAllRoutesRequest()))
             .Select(Mapper.Map<RouteDto>);

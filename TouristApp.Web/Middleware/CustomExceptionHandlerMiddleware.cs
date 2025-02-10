@@ -1,22 +1,18 @@
 ﻿using System.Net;
 using System.Text.Json;
 using FluentValidation;
+using Microsoft.AspNetCore.Components;
 using Serilog;
 using TouristApp.Application.Exceptions;
 
 namespace TouristApp.Web.Middleware;
 
-public class CustomExceptionHandlerMiddleware {
-    private readonly RequestDelegate _next;
-
-    public CustomExceptionHandlerMiddleware(RequestDelegate next) =>
-        _next = next;
-
+public class CustomExceptionHandlerMiddleware(RequestDelegate next, NavigationManager navManager) {
     public async Task Invoke(HttpContext context)
     {
         try
         {
-            await _next(context);
+            await next(context);
         }
         catch (Exception ex)
         {

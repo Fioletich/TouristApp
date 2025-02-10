@@ -7,12 +7,12 @@ public class CreatePinpointRequestValidator : AbstractValidator<CreatePinpointRe
         RuleFor(request => request.Name)
             .NotNull()
             .NotEqual(string.Empty)
-            .MaximumLength(255);
+            .MaximumLength(50);
 
         RuleFor(request => request.Description)
             .NotNull()
             .NotEqual(string.Empty)
-            .MaximumLength(255);
+            .MaximumLength(1000);
 
         RuleFor(request => request.AudioUrl)
             .MaximumLength(255);

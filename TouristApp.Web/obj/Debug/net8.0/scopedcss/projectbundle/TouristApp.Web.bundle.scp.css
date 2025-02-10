@@ -201,3 +201,20 @@ main[b-yexaufj5e3] {
         overflow-y: auto;
     }
 }
+/* _content/TouristApp.Web/Components/Pages/Pinpoints/PinpointsComponents/Pinpoint.razor.rz.scp.css */
+.pinpointsTitle[b-7pknroro0t] {
+    font-size: 40px;
+    font-weight: bold;
+    font-family: 'Montserrat', sans-serif;
+}
+/* _content/TouristApp.Web/Components/Pages/Routes/RoutesComponents/Route.razor.rz.scp.css */
+.favouriteRouteTitle[b-jnluzd87k6] {
+    font-size: 40px;
+    font-weight: bold;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.outline[b-jnluzd87k6] {
+    outline: solid;
+}
+/* _content/TouristApp.Web/Components/Pages/Routes/RoutesPage.razor.rz.scp.css */

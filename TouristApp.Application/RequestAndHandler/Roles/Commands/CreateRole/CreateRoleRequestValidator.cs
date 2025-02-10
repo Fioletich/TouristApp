@@ -7,6 +7,6 @@ public class CreateRoleRequestValidator : AbstractValidator<CreateRoleRequest> {
         RuleFor(r => r.Name)
             .NotEmpty()
             .NotNull()
-            .MaximumLength(100);
+            .MaximumLength(50);
     }
 }

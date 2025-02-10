@@ -1,0 +1,61 @@
+﻿@page "/RoutesPage"
+@using AutoMapper
+@using MediatR
+@using TouristApp.Web.Components.Pages.Routes.RoutesComponents
+@using Microsoft.AspNetCore.Components.Authorization
+@inject IMediator Mediator
+@inject IMapper Mapper
+
+<AuthorizeView>
+    <Authorized>
+        <Tabs NavStyle="NavStyle.Pills" EnableFadeEffect="true">
+            <Tab Active="true">
+                <TitleTemplate>
+                    <Icon Name="IconName.Bookmark"></Icon> Мои маршруты
+                </TitleTemplate>
+                <Content>
+                    <Card>
+                        <CardBody>
+                            <CardText>
+                                <Route
+                                    Routes="_routesOfUser"
+                                    FavouriteRoutes="_favouriteRoutes"
+                                    UserId="_userId"
+                                    Title="Мои маршруты"
+                                    IsUserCreatedRoutes="true"/>
+                            </CardText>
+                        </CardBody>
+                    </Card>
+                </Content>
+            </Tab>
+            <Tab>
+                <TitleTemplate>
+                    <Icon Name="IconName.CompassFill"/> Проверенные маршруты
+                </TitleTemplate>
+                <Content>
+                    <Card>
+                        <CardBody>
+                            <CardText>
+                                <Route
+                                    Routes="_routes"
+                                    FavouriteRoutes="_favouriteRoutes"
+                                    UserId="_userId"
+                                    Title="Проверенные маршруты"
+                                    IsUserCreatedRoutes="false"/>
+                            </CardText>
+                        </CardBody>
+                    </Card>
+                </Content>
+            </Tab>
+        </Tabs>
+    </Authorized>
+    <NotAuthorized>
+        <NotAuthorizedComponent/>
+    </NotAuthorized>
+</AuthorizeView>
+
+@code {
+
+    
+
+}

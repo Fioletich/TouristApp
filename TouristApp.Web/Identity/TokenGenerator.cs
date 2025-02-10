@@ -15,7 +15,8 @@ public class TokenGenerator(IConfiguration configuration) {
 
         var claims = new List<Claim>
         {
-            new Claim("role", user.Role.Name),
+            new Claim(ClaimTypes.Role, user.Role.Name),
+            new Claim(ClaimTypes.Name, user.Login),
             new Claim(JwtRegisteredClaimNames.Jti, currentTime.ToString()),
             new Claim(JwtRegisteredClaimNames.Sub, user.Id.ToString()),
             new Claim(JwtRegisteredClaimNames.Exp, expirationTime.ToString()),
@@ -24,7 +25,7 @@ public class TokenGenerator(IConfiguration configuration) {
 
         var tokenDescriptor = new SecurityTokenDescriptor
         {
-            Subject = new ClaimsIdentity(claims),
+            Subject = new ClaimsIdentity(claims, "jwt", ClaimTypes.Name, ClaimTypes.Role),
             Expires = DateTime.UtcNow.AddHours(1),
             Issuer = configuration["JwtSettings:Issuer"],
             Audience = configuration["JwtSettings:Audience"],

@@ -30,7 +30,8 @@ public class CustomAuthStateProvider(ProtectedLocalStorage localStorage) : Authe
         var handler = new JwtSecurityTokenHandler();
         var jwtToken = handler.ReadJwtToken(token);
         var claims = jwtToken.Claims;
-        return new ClaimsIdentity(claims, "jwt");
+        
+        return new ClaimsIdentity(claims, "jwt", "unique_name", "role");
     }
 
     public async Task LogoutUser() {

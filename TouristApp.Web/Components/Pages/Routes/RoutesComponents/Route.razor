@@ -1,0 +1,73 @@
+﻿@using AutoMapper
+@using MediatR
+@using Microsoft.AspNetCore.Components.Authorization
+@inject IMediator Mediator;
+@inject IMapper Mapper
+@inject AuthenticationStateProvider AuthenticationStateProvider
+
+<Modal @ref="_routeDescriptionModal" Title="Описание маршрута" ModalType="ModalType.Info">
+    <FooterTemplate>
+        <Button Color="ButtonColor.Secondary" @onclick="_routeDescriptionModal.HideAsync">Закрыть</Button>
+    </FooterTemplate>
+</Modal>
+
+<Modal @ref="_routePinpointsModal" Title="Список точек туристического маршрута" ModalType="ModalType.Info">
+    <BodyTemplate>
+        @_routePinpointsModal.Message
+    </BodyTemplate>
+    <FooterTemplate>
+        <Button Color="ButtonColor.Secondary" @onclick="_routePinpointsModal.HideAsync">Закрыть</Button>
+    </FooterTemplate>
+</Modal>
+
+<div class="container">
+    <div class="row" style="margin-bottom: 1%">
+        <div class="col-7">
+            <p style="margin-bottom: 1%" class="favouriteRouteTitle">@Title</p>
+        </div>
+        <div class="col">
+            <div class="d-grid align-items-end">
+                
+            </div>
+        </div>
+    </div>
+    <div class="row" style="margin-bottom: 3%">
+        <div class="col-6">
+            <span class="input-group">
+                <TextInput @bind-Value="_routeName" Placeholder="Введите запрос"/>
+                <Button Color="ButtonColor.Secondary">
+                    <Icon Name="IconName.Search"/>
+                </Button>
+            </span>
+        </div>
+        <div class="col">
+            <div class="d-grid">
+                <InputSelect TValue="Guid" class="form-select" @bind-Value="_categoryIdForSearch">
+                    <option value="@(Guid.Empty)">Введите категорию поиска</option>
+                </InputSelect>
+            </div>    
+        </div>
+        <div class="col">
+            <Switch @bind-Value="_isOnlyFavouriteRoutes"
+                    @onclick="OnSwitchClick"
+                    Label="Показать только избранное"/>
+        </div>
+    </div>
+    <div class="row row-cols-2">
+            @foreach (var route in Routes)
+            {
+                <RouteCard Route="route"
+                           OnRouteDescription="async () => await OnRouteDescriptionModalClicked(route)"
+                           OnRoutePinpoints="async () => await OnRoutePinpointsModalClicked(route)"
+                           OnDeleteRouteEventCallback="OnRouteDeleteEventCallback"
+                           OnAddFavouriteRouteEventCallback="OnFavouriteRouteAddEventCallback"
+                           OnDeleteFavouriteRouteEventCallback="OnFavouriteRouteDeleteEventCallback"
+                           UserId="UserId"
+                           FavouriteRoutes="FavouriteRoutes"
+                           IsUserCreated="IsUserCreatedRoutes"/>
+            }
+    </div>
+</div>
+@code {
+    
+}

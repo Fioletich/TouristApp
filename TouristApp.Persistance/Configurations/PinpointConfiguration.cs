@@ -30,11 +30,11 @@ public class PinpointConfiguration : IEntityTypeConfiguration<Pinpoint> {
                 });
         
         builder.Property(p => p.Name)
-            .HasMaxLength(255)
+            .HasMaxLength(50)
             .IsRequired();
 
         builder.Property(p => p.Description)
-            .HasMaxLength(255)
+            .HasMaxLength(1000)
             .IsRequired();
         
         builder.Property(p => p.XCoordinate)
