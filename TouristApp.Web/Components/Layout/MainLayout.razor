@@ -1,34 +1,75 @@
-﻿@using Microsoft.AspNetCore.Components.Authorization
+﻿@using System.Security.Claims
+@using Microsoft.AspNetCore.Components.Authorization
 @inherits LayoutComponentBase
 @inject NavigationManager NavManager
 @rendermode @(new InteractiveServerRenderMode(prerender: false))
 
-<div class="page">
-    <div class="sidebar">
-        <NavMenu/>
-    </div>
+<BlazorBootstrapLayout StickyHeader="true">
+    <HeaderSection>
+        <AuthorizeView>
+            <Authorized>
+                <Button Color="ButtonColor.Primary" Outline="true" @onclick="OnLogoutClick" TooltipPlacement="TooltipPlacement.Bottom" TooltipTitle="Выйти из аккаунта">
+                    <Icon Name="IconName.DoorOpen"></Icon>Выйти
+                </Button>
+            </Authorized>
+            <NotAuthorized>
+                <Button Color="ButtonColor.Primary" Outline="true" @onclick="OnLoginClick" TooltipPlacement="TooltipPlacement.Bottom" TooltipTitle="Перейти на страницу авторизации">
+                    <Icon Name="IconName.DoorClosed"></Icon>Войти
+                </Button>
+            </NotAuthorized>
+        </AuthorizeView>
+    </HeaderSection>
 
-    <main>
-        <div class="top-row px-4">
-            <CascadingAuthenticationState>
-                <AuthorizeView>
-                    <Authorized>
-                        <a href=@($"{NavManager.BaseUri}Logout")>Выйти</a>
-                    </Authorized>
-                    <NotAuthorized>
-                    </NotAuthorized>
-                </AuthorizeView>
-            </CascadingAuthenticationState>
-        </div>
+    <SidebarSection>
+        <Sidebar2 Href="/"
+                  ImageSrc="https://demos.blazorbootstrap.com/images/logo/logo-white.svg"
+                  Title="Blazor Bootstrap"
+                  BadgeText="3.3.1"
+                  DataProvider="Sidebar2DataProvider"
+                  WidthUnit="Unit.Px" />
+    </SidebarSection>
 
-        <article class="content px-4">
-            @Body
-        </article>
-    </main>
-</div>
+    <ContentSection>
+        @Body
+    </ContentSection>
+</BlazorBootstrapLayout>
 
-<div id="blazor-error-ui">
-    An unhandled error has occurred.
-    <a href="" class="reload">Reload</a>
-    <a class="dismiss">🗙</a>
-</div>
+@code {
+    [CascadingParameter] public Task<AuthenticationState> AuthTask { get; set; }
+    private ClaimsPrincipal user;
+    private IEnumerable<NavItem> navItems = default!;
+
+    async protected override Task OnInitializedAsync() {
+        user = (await AuthTask).User;
+    }
+
+    private async Task<Sidebar2DataProviderResult> Sidebar2DataProvider(Sidebar2DataProviderRequest request)
+    {
+        if (navItems is null)
+            navItems = GetNavItems();
+
+        return await Task.FromResult(request.ApplyTo(navItems));
+    }
+
+    private IEnumerable<NavItem> GetNavItems()
+    {
+        var navigationItems = new List<NavItem>();
+        
+        navigationItems.Add(new NavItem { Id = "1", Href = NavManager.BaseUri, 
+            IconName = IconName.HouseDoorFill, Text = "Домашняя страница", Match=NavLinkMatch.All});
+
+        if (user.Identity != null && user.Identity.IsAuthenticated)
+        {
+            navigationItems.Add(new NavItem { Id = "2", Href = $"{NavManager.BaseUri}RoutesPage",
+                IconName = IconName.CompassFill, Text = "Маршруты"});
+            navigationItems.Add(new NavItem { Id = "4", Href = $"{NavManager.BaseUri}PinpointsPage",
+                IconName = IconName.Table, Text = "Достопримечательности"});
+            navigationItems.Add(new NavItem { Id = "5", Href = $"{NavManager.BaseUri}RouteEditingPage",
+                IconName = IconName.Alphabet, Text = "Редактирование маршрутов"});
+        }
+
+        navItems = navigationItems;
+        
+        return navItems;
+    }
+}

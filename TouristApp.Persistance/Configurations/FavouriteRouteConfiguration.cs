@@ -19,6 +19,6 @@ public class FavouriteRouteConfiguration : IEntityTypeConfiguration<FavouriteRou
         builder.HasOne<User>()
             .WithMany()
             .HasForeignKey(p => p.UserId)
-            .OnDelete(DeleteBehavior.NoAction);
+            .OnDelete(DeleteBehavior.Cascade);
     }
 }

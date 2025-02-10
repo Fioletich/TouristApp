@@ -14,7 +14,7 @@ public class RoleConfiguration : IEntityTypeConfiguration<Role> {
             .HasForeignKey(u => u.RoleId);
         
         builder.Property(r => r.Name)
-            .HasMaxLength(100)
+            .HasMaxLength(50)
             .IsRequired();
     }
 }

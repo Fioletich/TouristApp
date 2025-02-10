@@ -1,0 +1,53 @@
+﻿@using MediatR
+@inject IMediator Mediator
+
+<div class="col-6" style="margin-bottom: 2%">
+    <Card Color="CardColor.Secondary">
+        <div class="row">
+            <div class="col-5">
+                <img class="rounded-top" src="placeholder.png" alt="placeholder"/>
+            </div>
+            <div class="col">
+                <CardBody>
+                    <CardTitle Style="margin-bottom: 28%">
+                        <p style="font-size: 24px">@Pinpoint.Name</p>
+                    </CardTitle>
+                    <CardFooter>
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-2">
+                            <Button Color="ButtonColor.Info" Size="ButtonSize.Small" @onclick="OnPinpointDescription" TooltipTitle="Создает окно с описанием данной точки" TooltipColor="TooltipColor.Info">
+                                Описание
+                            </Button>
+                            <Button Color="ButtonColor.Info" Size="ButtonSize.Small" @onclick="OnPinpointRoutes" TooltipTitle="Создает окно со списком всех привязанных точек к этому маршруту" TooltipColor="TooltipColor.Info">
+                                Просмотреть
+                            </Button>
+                            @if (IsPinpointFavourite)
+                            {
+                                <Button Color="ButtonColor.Info"
+                                        Size="ButtonSize.Small"
+                                        TooltipTitle="Удаляет из списка избранных достопримечательностей"
+                                        TooltipColor="TooltipColor.Info"
+                                        @onclick="OnFavouritePinpointDeleteClick">
+                                    <Icon Name="IconName.BookmarkFill"></Icon>
+                                </Button>
+                            }
+                            else
+                            {
+                                <Button Color="ButtonColor.Info"
+                                        Size="ButtonSize.Small"
+                                        TooltipTitle="Добавляет в список избранных достопримечательностей"
+                                        TooltipColor="TooltipColor.Info"
+                                        @onclick="OnFavouritePinpointAddClick">
+                                    <Icon Name="IconName.Bookmark"></Icon>
+                                </Button>
+                            }
+                        </div>
+                    </CardFooter>
+                </CardBody>
+            </div>
+        </div>
+    </Card>
+</div>
+
+@code {
+    
+}

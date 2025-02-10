@@ -11,7 +11,7 @@ public class DeleteFavouriteRouteRequestHandler(ITouristApplicationDbContext con
     public async Task Handle(DeleteFavouriteRouteRequest request, CancellationToken cancellationToken) {
         var favouriteRoute = await context.FavouriteRoutes
             .FirstOrDefaultAsync(fr => fr.RouteId == request.RouteId 
-                                       && fr.RouteId == request.RouteId, cancellationToken);
+                                       && fr.UserId == request.UserId, cancellationToken);
 
         if (favouriteRoute is null || favouriteRoute.RouteId != request.RouteId
                                     || favouriteRoute.UserId != request.UserId)

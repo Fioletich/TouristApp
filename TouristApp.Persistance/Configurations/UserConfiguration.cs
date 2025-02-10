@@ -49,11 +49,11 @@ public class UserConfiguration : IEntityTypeConfiguration<User>{
             .HasMaxLength(40);
         
         builder.Property(u => u.Password)
-            .HasMaxLength(40)
+            .HasMaxLength(255)
             .IsRequired();
         
         builder.Property(u => u.Login)
-            .HasMaxLength(40)
+            .HasMaxLength(50)
             .IsRequired();
     }
 }

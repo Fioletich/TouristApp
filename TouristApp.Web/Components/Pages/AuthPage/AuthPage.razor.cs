@@ -28,6 +28,6 @@ public partial class AuthPage : ComponentBase {
         var token = TokenGenerator.GenerateToken(user);
 
         await ((CustomAuthStateProvider)AuthStateProvider).AuthUser(token);
-        NavManager.NavigateTo($"{NavManager.BaseUri}");
+        NavManager.NavigateTo($"{NavManager.BaseUri}", true);
     }
 }

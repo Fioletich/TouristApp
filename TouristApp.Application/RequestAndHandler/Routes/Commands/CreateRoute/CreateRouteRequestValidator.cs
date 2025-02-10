@@ -10,11 +10,11 @@ public class CreateRouteRequestValidator : AbstractValidator<CreateRouteRequest>
         RuleFor(request => request.Name)
             .NotNull()
             .NotEqual(string.Empty)
-            .MaximumLength(255);
+            .MaximumLength(50);
 
         RuleFor(request => request.Description)
             .NotNull()
             .NotEqual(string.Empty)
-            .MaximumLength(255);
+            .MaximumLength(1000);
     }
 }

@@ -1,0 +1,23 @@
+﻿@using TouristApp.Domain.Models.Pinpoint
+
+<Grid TItem="PinpointDto" EmptyText="У данного маршрута нет точек интереса"
+      Class="table table-hover table-bordered table-striped"
+      DataProvider="PinpointsDataProvider">
+      <GridColumns>
+            <GridColumn TItem="PinpointDto" HeaderText="Название">
+                  @context.Name
+            </GridColumn>
+            <GridColumn TItem="PinpointDto" HeaderText="Описание">
+                  @context.Description
+            </GridColumn>
+            <GridColumn TItem="PinpointDto" HeaderText="Координаты">
+                  @context.XCoordinate, @context.YCoordinate
+            </GridColumn>
+      </GridColumns>
+</Grid>
+
+@code {
+
+    
+
+}

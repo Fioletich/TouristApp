@@ -7,7 +7,7 @@ public class CreateUserRequestValidator : AbstractValidator<CreateUserRequest> {
         RuleFor(request => request.Login)
             .NotNull()
             .NotEqual(string.Empty)
-            .MaximumLength(255);
+            .MaximumLength(50);
 
         RuleFor(request => request.RoleId)
             .NotNull();
@@ -18,6 +18,6 @@ public class CreateUserRequestValidator : AbstractValidator<CreateUserRequest> {
             .MaximumLength(255);
 
         RuleFor(request => request.City)
-            .MaximumLength(255);
+            .MaximumLength(40);
     }
 }

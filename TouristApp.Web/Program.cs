@@ -27,6 +27,7 @@ var builder = WebApplication.CreateBuilder(new WebApplicationOptions() {
 
 builder.Host.UseSerilog();
 
+builder.Services.AddBlazorBootstrap();
 builder.Services.AddControllers();
 builder.Services.AddAutoMapper(typeof(TouristAppMappingProfile));
 builder.Services.AddPersistance(builder.Configuration);
@@ -97,9 +98,9 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseSwagger();
 app.UseSwaggerUI(c => c.SwaggerEndpoint("./v1/swagger.json", "Test v1"));
+app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();
-app.UseRouting();
 app.UseAntiforgery();
 app.MapControllers();
 app.MapRazorComponents<App>()
