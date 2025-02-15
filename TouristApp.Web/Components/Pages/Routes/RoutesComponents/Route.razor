@@ -44,16 +44,20 @@
             <div class="d-grid">
                 <InputSelect TValue="Guid" class="form-select" @bind-Value="_categoryIdForSearch">
                     <option value="@(Guid.Empty)">Введите категорию поиска</option>
+                    @foreach (var categoryOfRoute in CategoryOfRoutes)
+                    {
+                        <option value="@categoryOfRoute.Id">@categoryOfRoute.Name</option>
+                    }
                 </InputSelect>
             </div>    
         </div>
         <div class="col">
             <Switch @bind-Value="_isOnlyFavouriteRoutes"
                     @onclick="OnSwitchClick"
-                    Label="Показать только избранное"/>
+                    Label="Показывать только избранное"/>
         </div>
     </div>
-    <div class="row row-cols-2">
+    <div class="row row-cols-lg-2 row-cols-auto">
             @foreach (var route in Routes)
             {
                 <RouteCard Route="route"

@@ -2,10 +2,15 @@
 using Microsoft.AspNetCore.Components;
 using TouristApp.Application.RequestAndHandler.FavouriteRoutes.Queries.GetAllFavouriteRoutes;
 using TouristApp.Application.RequestAndHandler.Pinpoints.Queries.GetPinpointsByRoute;
+using TouristApp.Application.RequestAndHandler.Roles.Queries.GetRoleByName;
 using TouristApp.Application.RequestAndHandler.Routes.Queries.GetAllRoutes;
+using TouristApp.Application.RequestAndHandler.Routes.Queries.GetRoutesByRole;
+using TouristApp.Application.RequestAndHandler.Routes.Queries.GetRoutesByUser;
+using TouristApp.Domain.Models.CategoryOfRoute;
 using TouristApp.Domain.Models.FavouriteRoute;
 using TouristApp.Domain.Models.Pinpoint;
 using TouristApp.Domain.Models.Route;
+using TouristApp.Domain.Models.RouteCategory;
 
 namespace TouristApp.Web.Components.Pages.Routes.RoutesComponents;
 
@@ -17,6 +22,14 @@ public partial class Route : ComponentBase {
     [Parameter]
     [EditorRequired]
     public IEnumerable<FavouriteRouteDto> FavouriteRoutes { get; set; } = default!;
+    
+    [Parameter]
+    [EditorRequired]
+    public IEnumerable<CategoryOfRouteDto> CategoryOfRoutes { get; set; } = default!;
+    
+    [Parameter]
+    [EditorRequired]
+    public IEnumerable<RouteCategoryDto> RouteCategories { get; set; } = default!;
     
     [Parameter]
     [EditorRequired]
@@ -75,12 +88,21 @@ public partial class Route : ComponentBase {
         if (!_isOnlyFavouriteRoutes)
         {
             Routes = Routes.Where(r => 
-                FavouriteRoutes.Any(fr => fr.RouteId == r.Id));
+                FavouriteRoutes.Any(fr => fr.RouteId == r.Id && fr.UserId == UserId));
         }
         else
         {
-            Routes = (await Mediator.Send(new GetAllRoutesRequest()))
-                .Select(Mapper.Map<RouteDto>);
+            if (IsUserCreatedRoutes)
+            {
+                Routes = (await Mediator.Send(new GetRoutesByUserRequest(UserId)))
+                    .Select(Mapper.Map<RouteDto>);
+            }
+            else
+            {
+                Routes = (await Mediator.Send(new GetRoutesByRoleRequest(
+                        (await Mediator.Send(new GetRoleByNameRequest("Admin"))).Id)))
+                    .Select(Mapper.Map<RouteDto>);
+            }
         }
     }
 }

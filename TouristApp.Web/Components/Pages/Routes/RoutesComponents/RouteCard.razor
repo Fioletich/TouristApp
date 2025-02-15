@@ -6,72 +6,67 @@
 <ConfirmDialog @ref="_deleteRouteConfirmDialog"/>
 <Toasts Class="p-3" AutoHide="true" Delay="4" Placement="ToastsPlacement.TopRight" Messages="_messages"/>
 
-<div class="col-6" style="margin-bottom: 2%">
+
+<div class="col" style="margin-bottom: 2%">
     <Card Color="CardColor.Secondary">
-        <div class="row">
-            <div class="col-5">
-                <img class="rounded-top" src="placeholder.png" alt="placeholder"/>
-            </div>
-            <div class="col">
-                <CardBody>
-                    <CardTitle Style="margin-bottom: 28%">
-                        <p style="font-size: 24px">@Route.Name</p>
-                    </CardTitle>
-                    <CardFooter>
-                        <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-2">
-                            <Button Color="ButtonColor.Info" Size="ButtonSize.Small" @onclick="OnRouteDescription" TooltipTitle="Создает окно с описанием данного маршрута" TooltipColor="TooltipColor.Info">
-                                Описание
-                            </Button>
-                            <Button Color="ButtonColor.Info" Size="ButtonSize.Small" @onclick="OnRoutePinpoints" TooltipTitle="Создает окно со списком всех привязанных точек к этому маршруту" TooltipColor="TooltipColor.Info">
-                                Просмотреть
-                            </Button>
-                            @if (IsRouteFavourite)
-                            {
-                                <Button Color="ButtonColor.Info" 
-                                        Size="ButtonSize.Small"
-                                        TooltipTitle="Удаляет из списка избранных маршрутов"
-                                        TooltipColor="TooltipColor.Info"
-                                        @onclick="OnFavouriteRouteDeleteClick">
-                                    <Icon Name="IconName.BookmarkFill"></Icon>
-                                </Button>
-                            }
-                            else
-                            {
-                                <Button Color="ButtonColor.Info"
-                                        Size="ButtonSize.Small"
-                                        TooltipTitle="Добавляет в список избранных маршрутов"
-                                        TooltipColor="TooltipColor.Info"
-                                        @onclick="OnFavouriteRouteAddClick">
-                                    <Icon Name="IconName.Bookmark"></Icon>
-                                </Button>
-                            }
-                            @if (IsUserCreated)
-                            {
-                                <Button Color="ButtonColor.Danger" Size="ButtonSize.Small"
+        <img class="rounded-top" src="placeholder.png" alt="placeholder"/>
+        <CardBody>
+            <CardTitle Style="margin-bottom: 28%">
+                <p style="font-size: 24px">@Route.Name</p>
+            </CardTitle>
+            <CardFooter>
+                <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-2">
+                    <Button Color="ButtonColor.Info" Size="ButtonSize.Small" @onclick="OnRouteDescription" TooltipTitle="Создает окно с описанием данного маршрута" TooltipColor="TooltipColor.Info">
+                        Описание
+                    </Button>
+                    <Button Color="ButtonColor.Info" Size="ButtonSize.Small" @onclick="OnRoutePinpoints" TooltipTitle="Создает окно со списком всех привязанных точек к этому маршруту" TooltipColor="TooltipColor.Info">
+                        Просмотреть
+                    </Button>
+                    @if (IsRouteFavourite)
+                    {
+                        <Button Color="ButtonColor.Info" 
+                                Size="ButtonSize.Small"
+                                TooltipTitle="Удаляет из списка избранных маршрутов"
+                                TooltipColor="TooltipColor.Info"
+                                @onclick="OnFavouriteRouteDeleteClick">
+                            <Icon Name="IconName.BookmarkFill"></Icon>
+                        </Button>
+                    }
+                    else
+                    {
+                        <Button Color="ButtonColor.Info"
+                                Size="ButtonSize.Small"
+                                TooltipTitle="Добавляет в список избранных маршрутов"
+                                TooltipColor="TooltipColor.Info"
+                                @onclick="OnFavouriteRouteAddClick">
+                            <Icon Name="IconName.Bookmark"></Icon>
+                        </Button>
+                    }
+                    @if (IsUserCreated)
+                    {
+                        <Button Color="ButtonColor.Danger" Size="ButtonSize.Small"
+                                TooltipTitle="Удаляет маршрут"
+                                TooltipColor="TooltipColor.Danger"
+                                @onclick="OnRouteDeleteClick">
+                            <Icon Name="IconName.Trash"></Icon>
+                        </Button>
+                    }
+                    else
+                    {
+                        <AuthorizeView Roles="Admin">
+                            <Authorized>
+                                <Button Color="ButtonColor.Danger" Size="ButtonSize.Small" 
                                         TooltipTitle="Удаляет маршрут"
                                         TooltipColor="TooltipColor.Danger"
                                         @onclick="OnRouteDeleteClick">
                                     <Icon Name="IconName.Trash"></Icon>
                                 </Button>
-                            }
-                            else
-                            {
-                                <AuthorizeView Roles="Admin">
-                                    <Authorized>
-                                        <Button Color="ButtonColor.Danger" Size="ButtonSize.Small" 
-                                                TooltipTitle="Удаляет маршрут"
-                                                TooltipColor="TooltipColor.Danger"
-                                                @onclick="OnRouteDeleteClick">
-                                            <Icon Name="IconName.Trash"></Icon>
-                                        </Button>
-                                    </Authorized>
-                                </AuthorizeView>
-                            }
-                        </div>
-                    </CardFooter>
-                </CardBody>
-            </div>
-        </div>
+                            </Authorized>
+                        </AuthorizeView>
+                    }
+                </div>
+            </CardFooter>
+        </CardBody>
     </Card>
 </div>
 
