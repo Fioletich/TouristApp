@@ -67,6 +67,10 @@
               "target": "Package",
               "version": "[9.0.1, )"
             },
+            "Microsoft.Extensions.DependencyInjection": {
+              "target": "Package",
+              "version": "[9.0.2, )"
+            },
             "Serilog": {
               "target": "Package",
               "version": "[4.1.0-dev-02238, )"
@@ -210,6 +214,10 @@
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
               "version": "[9.0.1, )"
+            },
+            "Microsoft.Extensions.Configuration": {
+              "target": "Package",
+              "version": "[9.0.2, )"
             }
           },
           "imports": [
