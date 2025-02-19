@@ -1,5 +1,38 @@
 ﻿@page "/RouteCreationForm"
-<h3>RouteCreationForm</h3>
+@using Microsoft.AspNetCore.Components.Authorization
+
+<AuthorizeView Context="authContext">
+    <Authorized>
+        <EditForm style="padding: 60px" EditContext="_routeEditContext" OnValidSubmit="HandleValidSubmit">
+            <DataAnnotationsValidator/>
+
+            <div class="form-group row mb-3">
+                <label class="col-md-2 col-form-label">Название: <span class="text-danger">*</span></label>
+                <div class="col-md-10">
+                    <TextInput @bind-Value="@_route.Name" Placeholder="Введите название" />
+                    <ValidationMessage For="@(() => _route.Name)" />
+                </div>
+            </div>
+            <div class="form-group row mb-3">
+                <label class="col-md-2 col-form-label">Описание: <span class="text-danger">*</span></label>
+                <div class="col-md-10">
+                    <TextInput @bind-Value="@_route.Description" Placeholder="Введите описание" />
+                    <ValidationMessage For="@(() => _route.Description)" />
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <Button Type="ButtonType.Button" Color="ButtonColor.Secondary" Class="float-end" @onclick="ResetForm">Сбросить</Button>
+                    <Button Type="ButtonType.Submit" Color="ButtonColor.Success" Class="float-end me-2">Создать</Button>
+                </div>
+            </div>
+        </EditForm>
+    </Authorized>
+    <NotAuthorized>
+        <NotAuthorizedComponent/>
+    </NotAuthorized>
+</AuthorizeView>
 
 @code {
 

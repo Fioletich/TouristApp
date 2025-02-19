@@ -1,7 +1,61 @@
 ﻿@page "/PinpointCreationForm"
-<h3>PinpointCreationForm</h3>
+@using Microsoft.AspNetCore.Components.Authorization
 
-@code {
+<AuthorizeView Context="authContext" Roles="Admin">
+    <Authorized>
+        <EditForm EditContext="_pinpointEditContext" OnValidSubmit="HandleValidSubmit">
+            <DataAnnotationsValidator/>
+    
+            <div class="form-group row mb-3">
+                <label class="col-md-2 col-form-label">Название: <span class="text-danger">*</span></label>
+                <div class="col-md-10">
+                    <TextInput @bind-Value="@_pinpoint.Name" Placeholder="Введите название" />
+                    <ValidationMessage For="@(() => _pinpoint.Name)" />
+                </div>
+            </div>
+            <div class="form-group row mb-3">
+                <label class="col-md-2 col-form-label">Описание: <span class="text-danger">*</span></label>
+                <div class="col-md-10">
+                    <TextInput @bind-Value="@_pinpoint.Description" Placeholder="Введите описание" />
+                    <ValidationMessage For="@(() => _pinpoint.Description)" />
+                </div>
+            </div>
+            <div class="form-group row mb-3">
+                <label class="col-md-2 col-form-label">X координата: <span class="text-danger">*</span></label>
+                <div class="col-md-10">
+                    <NumberInput TValue="decimal" Step="0.1" @bind-Value="@_pinpoint.XCoordinate" Placeholder="Введите X координату" />
+                    <ValidationMessage For="@(() => _pinpoint.XCoordinate)" />
+                </div>
+            </div>
+            <div class="form-group row mb-3">
+                <label class="col-md-2 col-form-label">Y координата: <span class="text-danger">*</span></label>
+                <div class="col-md-10">
+                    <NumberInput TValue="decimal" Step="0.1"  @bind-Value="@_pinpoint.YCoordinate" Placeholder="Введите Y координату" />
+                    <ValidationMessage For="@(() => _pinpoint.YCoordinate)" />
+                </div>
+            </div>
+            <div class="form-group row mb-3">
+                <label class="col-md-2 col-form-label">Url аудио: </label>
+                <div class="col-md-10">
+                    <TextInput @bind-Value="@_pinpoint.AudioUrl" Placeholder="Введите Url аудио" />
+                    <ValidationMessage For="@(() => _pinpoint.AudioUrl)" />
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <Button Type="ButtonType.Button" Color="ButtonColor.Secondary" Class="float-end" @onclick="ResetForm">Сбросить</Button>
+                    <Button Type="ButtonType.Submit" Color="ButtonColor.Success" Class="float-end me-2">Создать</Button>
+                </div>
+            </div>
+        </EditForm>
+    </Authorized>
+    <NotAuthorized>
+        <NotAuthorizedComponent/>
+    </NotAuthorized>
+</AuthorizeView>
+    
+    @code {
 
     
 

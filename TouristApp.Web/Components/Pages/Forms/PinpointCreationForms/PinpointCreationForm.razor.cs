@@ -10,16 +10,16 @@ public partial class PinpointCreationForm : ComponentBase {
     [Inject] public IMediator Mediator { get; set; } = default!;
     
     private PinpointDto _pinpoint = new PinpointDto();
-    private EditContext? _editContext;
+    private EditContext? _pinpointEditContext;
 
     async protected override Task OnInitializedAsync() {
-        _editContext = new EditContext(_pinpoint);
+        _pinpointEditContext = new EditContext(_pinpoint);
         
         await base.OnInitializedAsync();
     }
 
     private async Task HandleValidSubmit() {
-        if (_editContext!.Validate())
+        if (_pinpointEditContext!.Validate())
         {
             await Mediator.Send(new CreatePinpointRequest(
                 Name: _pinpoint.Name,
@@ -30,12 +30,12 @@ public partial class PinpointCreationForm : ComponentBase {
             ));
             
             _pinpoint = new PinpointDto();
-            _editContext = new EditContext(_pinpoint);
+            _pinpointEditContext = new EditContext(_pinpoint);
         }
     }
 
     private void ResetForm() {
         _pinpoint = new PinpointDto();
-        _editContext = new EditContext(_pinpoint);
+        _pinpointEditContext = new EditContext(_pinpoint);
     }
 }

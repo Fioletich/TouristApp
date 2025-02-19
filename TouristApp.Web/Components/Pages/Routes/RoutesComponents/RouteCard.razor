@@ -44,6 +44,11 @@
                     }
                     @if (IsUserCreated)
                     {
+                        <Button Color="ButtonColor.Info" Size="ButtonSize.Small"
+                                TooltipTitle="Изменить достопримечательности маршрута"
+                                TooltipColor="TooltipColor.Info">
+                            <Icon Name="IconName.PinMap"></Icon>
+                        </Button>
                         <Button Color="ButtonColor.Danger" Size="ButtonSize.Small"
                                 TooltipTitle="Удаляет маршрут"
                                 TooltipColor="TooltipColor.Danger"
@@ -55,7 +60,12 @@
                     {
                         <AuthorizeView Roles="Admin">
                             <Authorized>
-                                <Button Color="ButtonColor.Danger" Size="ButtonSize.Small" 
+                                <Button Color="ButtonColor.Info" Size="ButtonSize.Small"
+                                        TooltipTitle="Изменить достопримечательности маршрута"
+                                        TooltipColor="TooltipColor.Info">
+                                    <Icon Name="IconName.PinMap"></Icon>
+                                </Button>
+                                <Button Color="ButtonColor.Danger" Size="ButtonSize.Small"
                                         TooltipTitle="Удаляет маршрут"
                                         TooltipColor="TooltipColor.Danger"
                                         @onclick="OnRouteDeleteClick">
