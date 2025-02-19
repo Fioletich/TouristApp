@@ -1,0 +1,25 @@
+﻿@@media (max-width: 767px) {
+    body {
+        font-size: 14px;
+    }
+
+    .form-container {
+        padding: 0.5rem !important;
+        margin: 0.5rem !important;
+    }
+
+    .mobile-hidden {
+        display: none !important;
+    }
+}
+
+/* Фиолетовая тема */
+:root {
+    --primary-color: #7C3AED;
+    --secondary-color: #9F7AEA;
+}
+
+.btn-purple {
+    background: var(--primary-color);
+    border-color: var(--primary-color);
+}

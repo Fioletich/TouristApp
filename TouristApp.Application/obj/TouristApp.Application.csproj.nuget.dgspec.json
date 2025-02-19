@@ -94,11 +94,6 @@
           },
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.405/PortableRuntimeIdentifierGraph.json"
         }
-      },
-      "runtimes": {
-        "win-x86": {
-          "#import": []
-        }
       }
     },
     "D:\\Works\\RiderProjects\\TouristApp\\TouristApp.Domain\\TouristApp.Domain.csproj": {
@@ -166,11 +161,6 @@
             }
           },
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.405/PortableRuntimeIdentifierGraph.json"
-        }
-      },
-      "runtimes": {
-        "win-x86": {
-          "#import": []
         }
       }
     }

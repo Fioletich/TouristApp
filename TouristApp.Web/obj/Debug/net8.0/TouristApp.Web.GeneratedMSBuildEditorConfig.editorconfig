@@ -46,14 +46,6 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xFcnJvci5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Works/RiderProjects/TouristApp/TouristApp.Web/Components/Pages/Forms/PinpointCreationForms/PinpointCreationForm.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xGb3Jtc1xQaW5wb2ludENyZWF0aW9uRm9ybXNcUGlucG9pbnRDcmVhdGlvbkZvcm0ucmF6b3I=
-build_metadata.AdditionalFiles.CssScope = 
-
-[D:/Works/RiderProjects/TouristApp/TouristApp.Web/Components/Pages/Forms/RouteCreationForms/RouteCreationForm.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xGb3Jtc1xSb3V0ZUNyZWF0aW9uRm9ybXNcUm91dGVDcmVhdGlvbkZvcm0ucmF6b3I=
-build_metadata.AdditionalFiles.CssScope = 
-
 [D:/Works/RiderProjects/TouristApp/TouristApp.Web/Components/Pages/Home.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xIb21lLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
@@ -105,6 +97,14 @@ build_metadata.AdditionalFiles.CssScope = b-yexaufj5e3
 [D:/Works/RiderProjects/TouristApp/TouristApp.Web/Components/Layout/NavMenu.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xMYXlvdXRcTmF2TWVudS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = b-il2cq9gf95
+
+[D:/Works/RiderProjects/TouristApp/TouristApp.Web/Components/Pages/Forms/PinpointCreationForms/PinpointCreationForm.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xGb3Jtc1xQaW5wb2ludENyZWF0aW9uRm9ybXNcUGlucG9pbnRDcmVhdGlvbkZvcm0ucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-b1ltirpq8n
+
+[D:/Works/RiderProjects/TouristApp/TouristApp.Web/Components/Pages/Forms/RouteCreationForms/RouteCreationForm.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xGb3Jtc1xSb3V0ZUNyZWF0aW9uRm9ybXNcUm91dGVDcmVhdGlvbkZvcm0ucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-wgj81tkis4
 
 [D:/Works/RiderProjects/TouristApp/TouristApp.Web/Components/Pages/Pinpoints/PinpointsComponents/Pinpoint.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xQaW5wb2ludHNcUGlucG9pbnRzQ29tcG9uZW50c1xQaW5wb2ludC5yYXpvcg==

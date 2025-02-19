@@ -3,36 +3,171 @@
 
 <AuthorizeView Context="authContext">
     <Authorized>
-        <EditForm style="padding: 60px" EditContext="_routeEditContext" OnValidSubmit="HandleValidSubmit">
-            <DataAnnotationsValidator/>
+        <div class="form-container">
+            <EditForm Context="editContext" Model="@_route" OnValidSubmit="HandleValidSubmit">
+                <DataAnnotationsValidator/>
 
-            <div class="form-group row mb-3">
-                <label class="col-md-2 col-form-label">Название: <span class="text-danger">*</span></label>
-                <div class="col-md-10">
-                    <TextInput @bind-Value="@_route.Name" Placeholder="Введите название" />
-                    <ValidationMessage For="@(() => _route.Name)" />
+                <div class="form-header">
+                    <h2>Создание нового маршрута</h2>
+                    <div class="accent-line"></div>
                 </div>
-            </div>
-            <div class="form-group row mb-3">
-                <label class="col-md-2 col-form-label">Описание: <span class="text-danger">*</span></label>
-                <div class="col-md-10">
-                    <TextInput @bind-Value="@_route.Description" Placeholder="Введите описание" />
-                    <ValidationMessage For="@(() => _route.Description)" />
-                </div>
-            </div>
 
-            <div class="row">
-                <div class="col-md-12">
-                    <Button Type="ButtonType.Button" Color="ButtonColor.Secondary" Class="float-end" @onclick="ResetForm">Сбросить</Button>
-                    <Button Type="ButtonType.Submit" Color="ButtonColor.Success" Class="float-end me-2">Создать</Button>
+                <div class="form-body">
+                    <div class="form-group row mb-3 input-group">
+                        <label>Название маршрута</label>
+                        <TextInput @bind-Value="_route.Name" Class="form-input"/>
+                        <ValidationMessage For="@(() => _route.Name)"/>
+                    </div>
+
+                    <div class="form-group row mb-3 input-group">
+                        <label>Описание маршрута</label>
+                        <TextAreaInput @bind-Value="_route.Description" Class="form-input textarea"/>
+                        <ValidationMessage For="(() => _route.Description)"></ValidationMessage>
+                    </div>
                 </div>
-            </div>
-        </EditForm>
+
+                <div class="form-actions">
+                    <Button Type="ButtonType.Submit" class="primary-btn">Сохранить маршрут</Button>
+                    <Button Type="ButtonType.Button" @onclick="ResetForm" class="secondary-btn">Сбросить</Button>
+                </div>
+            </EditForm>
+        </div>
     </Authorized>
     <NotAuthorized>
         <NotAuthorizedComponent/>
     </NotAuthorized>
 </AuthorizeView>
+
+<style>
+    .form-container {
+        max-width: 740px;
+        margin: 2rem auto;
+        padding: 2.5rem;
+        background: #f8f5ff;
+        border-radius: 16px;
+        box-shadow: 0 12px 32px rgba(124, 58, 237, 0.08);
+    }
+
+    .form-header {
+        margin-bottom: 2rem;
+        text-align: center;
+    }
+
+    .form-header h2 {
+        color: #4C1D95;
+        font-size: 1.8rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .accent-line {
+        width: 80px;
+        height: 4px;
+        background: #7C3AED;
+        margin: 0 auto;
+        border-radius: 2px;
+        opacity: 0.8;
+    }
+
+    .input-group {
+        margin-bottom: 1.8rem;
+    }
+
+    .input-group label {
+        display: block;
+        margin-bottom: 0.6rem;
+        color: #4C1D95;
+        font-weight: 500;
+        font-size: 0.95rem;
+    }
+
+    .form-input {
+        width: 100%;
+        padding: 1rem 1.4rem;
+        border: 2px solid #DDD6FE;
+        border-radius: 10px;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        background: white;
+        font-size: 1rem;
+    }
+
+    .form-input:focus {
+        outline: none;
+        border-color: #7C3AED;
+        box-shadow: 0 0 0 4px rgba(124, 58, 237, 0.15);
+    }
+
+    .textarea {
+        min-height: 120px;
+        resize: vertical;
+        line-height: 1.6;
+    }
+
+    .form-actions {
+        display: flex;
+        gap: 1.2rem;
+        margin-top: 2.5rem;
+        justify-content: flex-end;
+    }
+
+    .primary-btn {
+        background: linear-gradient(135deg, #7C3AED 0%, #6D28D9 100%);
+        color: white;
+        padding: 1rem 2rem;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        box-shadow: 0 4px 12px rgba(124, 58, 237, 0.25);
+    }
+
+    .primary-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 16px rgba(124, 58, 237, 0.35);
+    }
+
+    .secondary-btn {
+        background: #EDE9FE;
+        color: #7C3AED;
+        padding: 1rem 2rem;
+        border: 2px solid transparent;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-weight: 500;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+
+    .secondary-btn:hover {
+        background: #DDD6FE;
+        border-color: #C4B5FD;
+    }
+
+    .validation-message {
+        color: #EF4444;
+        font-size: 0.9rem;
+        margin-top: 0.4rem;
+        padding-left: 0.5rem;
+    }
+    
+    @@media (max-width: 768px) {
+        .form-container {
+            margin: 1rem;
+            padding: 1.5rem;
+        }
+
+        .form-actions {
+            flex-direction: column;
+        }
+
+        .primary-btn, .secondary-btn {
+            width: 100%;
+            justify-content: center;
+        }
+    }
+</style>
 
 @code {
 

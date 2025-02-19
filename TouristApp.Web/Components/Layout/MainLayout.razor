@@ -62,8 +62,16 @@
                 IconName = IconName.CompassFill, Text = "Маршруты"});
             navigationItems.Add(new NavItem { Id = "4", Href = $"{NavManager.BaseUri}PinpointsPage",
                 IconName = IconName.Table, Text = "Достопримечательности"});
-            navigationItems.Add(new NavItem { Id = "5", Href = $"{NavManager.BaseUri}RouteEditingPage",
-                IconName = IconName.Alphabet, Text = "Редактирование маршрутов"});
+            //navigationItems.Add(new NavItem { Id = "5", Href = $"{NavManager.BaseUri}RouteEditingPage",
+            //    IconName = IconName.Alphabet, Text = "Редактирование маршрутов"});
+            if (user.IsInRole("Admin"))
+            {
+                navigationItems.Add(new NavItem { Id = "5", Href = $"{NavManager.BaseUri}PinpointCreationForm",
+                    IconName = IconName.Plus, Text = "Добавить достопримечательность"});
+            }
+            
+            navigationItems.Add(new NavItem { Id = "6", Href = $"{NavManager.BaseUri}RouteCreationForm",
+                IconName = IconName.Plus, Text = "Добавить маршрут"});
         }
 
         navItems = navigationItems;

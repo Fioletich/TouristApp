@@ -3,59 +3,178 @@
 
 <AuthorizeView Context="authContext" Roles="Admin">
     <Authorized>
-        <EditForm EditContext="_pinpointEditContext" OnValidSubmit="HandleValidSubmit">
-            <DataAnnotationsValidator/>
-    
-            <div class="form-group row mb-3">
-                <label class="col-md-2 col-form-label">Название: <span class="text-danger">*</span></label>
-                <div class="col-md-10">
-                    <TextInput @bind-Value="@_pinpoint.Name" Placeholder="Введите название" />
-                    <ValidationMessage For="@(() => _pinpoint.Name)" />
+        <div class="form-container">
+            <EditForm Context="editContext" Model="@_pinpoint" OnValidSubmit="HandleValidSubmit">
+                <DataAnnotationsValidator/>
+                
+                <div class="form-header">
+                    <h2>Создание новой точки</h2>
+                    <div class="accent-line"></div>
                 </div>
-            </div>
-            <div class="form-group row mb-3">
-                <label class="col-md-2 col-form-label">Описание: <span class="text-danger">*</span></label>
-                <div class="col-md-10">
-                    <TextInput @bind-Value="@_pinpoint.Description" Placeholder="Введите описание" />
-                    <ValidationMessage For="@(() => _pinpoint.Description)" />
-                </div>
-            </div>
-            <div class="form-group row mb-3">
-                <label class="col-md-2 col-form-label">X координата: <span class="text-danger">*</span></label>
-                <div class="col-md-10">
-                    <NumberInput TValue="decimal" Step="0.1" @bind-Value="@_pinpoint.XCoordinate" Placeholder="Введите X координату" />
-                    <ValidationMessage For="@(() => _pinpoint.XCoordinate)" />
-                </div>
-            </div>
-            <div class="form-group row mb-3">
-                <label class="col-md-2 col-form-label">Y координата: <span class="text-danger">*</span></label>
-                <div class="col-md-10">
-                    <NumberInput TValue="decimal" Step="0.1"  @bind-Value="@_pinpoint.YCoordinate" Placeholder="Введите Y координату" />
-                    <ValidationMessage For="@(() => _pinpoint.YCoordinate)" />
-                </div>
-            </div>
-            <div class="form-group row mb-3">
-                <label class="col-md-2 col-form-label">Url аудио: </label>
-                <div class="col-md-10">
-                    <TextInput @bind-Value="@_pinpoint.AudioUrl" Placeholder="Введите Url аудио" />
-                    <ValidationMessage For="@(() => _pinpoint.AudioUrl)" />
-                </div>
-            </div>
 
-            <div class="row">
-                <div class="col-md-12">
-                    <Button Type="ButtonType.Button" Color="ButtonColor.Secondary" Class="float-end" @onclick="ResetForm">Сбросить</Button>
-                    <Button Type="ButtonType.Submit" Color="ButtonColor.Success" Class="float-end me-2">Создать</Button>
+                <div class="form-body">
+                    <div class="form-group row mb-3 input-group">
+                        <label>Название</label>
+                        <TextInput @bind-Value="_pinpoint.Name" class="form-input"/>
+                        <ValidationMessage For="@(() => _pinpoint.Name)"/>
+                    </div>
+
+                    <div class="form-group row mb-3 input-group">
+                        <label>Описание</label>
+                        <TextAreaInput @bind-Value="_pinpoint.Description" class="form-input textarea"/>
+                        <ValidationMessage For="@(() => _pinpoint.Description)"/>
+                    </div>
+
+                    <div class="form-group row mb-3 input-group">
+                        <label>Аудио URL</label>
+                        <TextInput @bind-Value="_pinpoint.AudioUrl" class="form-input"/>
+                        <ValidationMessage For="@(() => _pinpoint.AudioUrl)"/>
+                    </div>
+
+                    <div class="row coord-grid">
+                        <div class="form-group row mb-3 input-group">
+                            <label>X Координата</label>
+                            <NumberInput TValue="decimal" Step="0.1" @bind-Value="_pinpoint.XCoordinate" class="form-input"/>
+                            <ValidationMessage For="@(() => _pinpoint.XCoordinate)"/>
+                        </div>
+                        <div class="form-group row mb-3 input-group">
+                            <label>Y Координата</label>
+                            <NumberInput TValue="decimal" Step="0.1" @bind-Value="_pinpoint.YCoordinate" class="form-input"/>
+                            <ValidationMessage For="@(() => _pinpoint.YCoordinate)"/>
+                        </div>
+                    </div>
+                    
+                    
+
                 </div>
-            </div>
-        </EditForm>
+
+                <div class="form-actions">
+                    <Button Type="ButtonType.Submit" class="primary-btn">Создать точку</Button>
+                    <Button Type="ButtonType.Button" @onclick="ResetForm" class="secondary-btn">Сбросить</Button>
+                </div>
+            </EditForm>
+        </div>
     </Authorized>
     <NotAuthorized>
         <NotAuthorizedComponent/>
     </NotAuthorized>
 </AuthorizeView>
-    
-    @code {
+
+<style>
+    .form-container {
+        max-width: 740px;
+        margin: 2rem auto;
+        padding: 2rem;
+        background: #fafafa;
+        border-radius: 12px;
+        box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+    }
+
+    .form-header {
+        margin-bottom: 2rem;
+        text-align: center;
+    }
+
+    .form-header h2 {
+        color: #4C1D95;
+        font-size: 1.8rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .accent-line {
+        width: 60px;
+        height: 4px;
+        background: #7C3AED;
+        margin: 0 auto;
+        border-radius: 2px;
+    }
+
+    .input-group {
+        margin-bottom: 1.5rem;
+    }
+
+    .input-group label {
+        display: block;
+        margin-bottom: 0.5rem;
+        color: #4C1D95;
+        font-weight: 500;
+    }
+
+    .form-input {
+        width: 100%;
+        padding: 0.8rem 1.2rem;
+        border: 2px solid #DDD6FE;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+        background: white;
+    }
+
+    .form-input:focus {
+        outline: none;
+        border-color: #7C3AED;
+        box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.2);
+    }
+
+    .textarea {
+        min-height: 100px;
+        resize: vertical;
+    }
+
+    .coord-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+        margin-top: 1rem;
+    }
+
+    .form-actions {
+        display: flex;
+        gap: 1rem;
+        margin-top: 2rem;
+        justify-content: flex-end;
+    }
+
+    .primary-btn {
+        background: #7C3AED;
+        color: white;
+        padding: 0.8rem 1.5rem;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    .primary-btn:hover {
+        background: #6D28D9;
+        transform: translateY(-1px);
+    }
+
+    .secondary-btn {
+        background: #EDE9FE;
+        color: #7C3AED;
+        padding: 0.8rem 1.5rem;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-weight: 500;
+    }
+
+    .secondary-btn:hover {
+        background: #DDD6FE;
+    }
+
+    .validation-message {
+        color: #EF4444;
+        font-size: 0.875rem;
+        margin-top: 0.25rem;
+    }
+</style>
+
+@code {
 
     
 

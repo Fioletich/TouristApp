@@ -203,6 +203,119 @@ main[b-yexaufj5e3] {
         overflow-y: auto;
     }
 }
+/* _content/TouristApp.Web/Components/Pages/Forms/PinpointCreationForms/PinpointCreationForm.razor.rz.scp.css */
+.form-container[b-b1ltirpq8n] {
+    max-width: 740px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: #fafafa;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+}
+
+.form-header[b-b1ltirpq8n] {
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.form-header h2[b-b1ltirpq8n] {
+    color: #4C1D95;
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+}
+
+.accent-line[b-b1ltirpq8n] {
+    width: 60px;
+    height: 4px;
+    background: #7C3AED;
+    margin: 0 auto;
+    border-radius: 2px;
+}
+
+.input-group[b-b1ltirpq8n] {
+    margin-bottom: 1.5rem;
+}
+
+.input-group label[b-b1ltirpq8n] {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #4C1D95;
+    font-weight: 500;
+}
+
+.form-input[b-b1ltirpq8n] {
+    width: 100%;
+    padding: 0.8rem 1.2rem;
+    border: 2px solid #DDD6FE;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    background: white;
+}
+
+.form-input:focus[b-b1ltirpq8n] {
+    outline: none;
+    border-color: #7C3AED;
+    box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.2);
+}
+
+.textarea[b-b1ltirpq8n] {
+    min-height: 100px;
+    resize: vertical;
+}
+
+.coord-grid[b-b1ltirpq8n] {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.form-actions[b-b1ltirpq8n] {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+    justify-content: flex-end;
+}
+
+.primary-btn[b-b1ltirpq8n] {
+    background: #7C3AED;
+    color: white;
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.primary-btn:hover[b-b1ltirpq8n] {
+    background: #6D28D9;
+    transform: translateY(-1px);
+}
+
+.secondary-btn[b-b1ltirpq8n] {
+    background: #EDE9FE;
+    color: #7C3AED;
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.secondary-btn:hover[b-b1ltirpq8n] {
+    background: #DDD6FE;
+}
+
+.validation-message[b-b1ltirpq8n] {
+    color: #EF4444;
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+}
+/* _content/TouristApp.Web/Components/Pages/Forms/RouteCreationForms/RouteCreationForm.razor.rz.scp.css */
 /* _content/TouristApp.Web/Components/Pages/Pinpoints/PinpointsComponents/Pinpoint.razor.rz.scp.css */
 .pinpointsTitle[b-7pknroro0t] {
     font-size: 40px;
